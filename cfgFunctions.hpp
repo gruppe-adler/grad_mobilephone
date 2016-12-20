@@ -1,15 +1,13 @@
 class GRAD_Telephone {
-    class Setup {
-        file = MODULES_DIRECTORY\grad-telephone\setup\;
-        class setUniqueIdleFrequency {};
+    class SetupPlayer {
+        file = MODULES_DIRECTORY\grad-telephone\setup\player\;
         class disableRiflemanRadio {};
+        class setUniqueIdleFrequency {};
 	};
 
-	class Functions {
-        file = MODULES_DIRECTORY\grad-telephone\functions\;
-        class dialNumber {};
-        class callingNumber {};
-        class cancelCall {};
-        class endCall {};
+	class SetupServer {
+        file = MODULES_DIRECTORY\grad-telephone\setup\server\;
+        class generatePhoneNumber {};
+        
 	};
 };
