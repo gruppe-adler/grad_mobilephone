@@ -8,4 +8,4 @@ player setVariable ["GRAD_telephone_number",_number];
 
 (str _freq) call TFAR_fnc_setPersonalRadioFrequency;
 
-[] call disableRiflemanRadio;
+[] call grad_telephone_fnc_disableRiflemanRadio;

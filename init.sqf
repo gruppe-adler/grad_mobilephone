@@ -13,10 +13,10 @@ if (isServer) then {
 		/* SINGLEPLAYER */
 		COUNTUIF = COUNTUIF + 1;
 
-		_generatedNumber = [PHONENUMBERS] call generatePhoneNumber;
+		_generatedNumber = [PHONENUMBERS] call grad_telephone_fnc_generatePhoneNumber;
 		PHONENUMBERS = PHONENUMBERS + [_generatedNumber];
 
-		[COUNTUIF,_generatedNumber] call setUniqueIdleFrequency;
+		[COUNTUIF,_generatedNumber] call grad_telephone_fnc_setUniqueIdleFrequency;
 	};
 	
 
@@ -25,7 +25,7 @@ if (isServer) then {
 	{
 		COUNTUIF = COUNTUIF + 1;
 
-		_generatedNumber = [PHONENUMBERS] call generatePhoneNumber;
+		_generatedNumber = [PHONENUMBERS] call grad_telephone_fnc_generatePhoneNumber;
 		PHONENUMBERS = PHONENUMBERS + [_generatedNumber];
 
 		[COUNTUIF,_generatedNumber] remoteExec ["setUniqueIdleFrequency", _this select 4];
