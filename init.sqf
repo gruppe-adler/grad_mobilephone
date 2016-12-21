@@ -16,7 +16,7 @@ if (isServer) then {
 		_generatedNumber = [PHONENUMBERS] call grad_telephone_fnc_generatePhoneNumber;
 		PHONENUMBERS = PHONENUMBERS + [_generatedNumber];
 
-		[COUNTUIF,_generatedNumber] call grad_telephone_fnc_setUniqueIdleFrequency;
+		[COUNTUIF,_generatedNumber,BASEUIF] call grad_telephone_fnc_setupPlayerWithRadio;
 	};
 	
 
@@ -28,7 +28,7 @@ if (isServer) then {
 		_generatedNumber = [PHONENUMBERS] call grad_telephone_fnc_generatePhoneNumber;
 		PHONENUMBERS = PHONENUMBERS + [_generatedNumber];
 
-		[COUNTUIF,_generatedNumber] remoteExec ["setUniqueIdleFrequency", _this select 4];
+		[COUNTUIF,_generatedNumber,BASEUIF] remoteExec ["setupPlayerWithRadio", _this select 4];
 		diag_log format ["grad-telephone: set client %1 to UIF %2.", _this select 2, _this select 4];
 	}];
 };

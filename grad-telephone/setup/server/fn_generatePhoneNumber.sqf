@@ -7,22 +7,18 @@
 
 params ["_existingNumbers"];
 
-_phonePrefixesAfghan = [0701,0702,0703,0704,0705,0706,0707,0708,0799,0798,0797,0796,0795,0794,0793,0786,0787,0788,0789,0771,0772,0773,0774,0775,0776,0777,0778,0779];
-_phonePrefixesGerman = [0150,0151,0152,0155,0157,0160,0162,0170,0171,0172,0173,0174,0175,0176,0178,0179];
+_phonePrefixesAfghan = ["0701","0702","0703","0704","0705","0706","0707","0708","0799","0798","0797","0796","0795","0794","0793","0786","0787","0788","0789","0771","0772","0773","0774","0775","0776","0777","0778","0779"];
+_phonePrefixesGerman = ["0150","0151","0152","0155","0157","0160","0162","0170","0171","0172","0173","0174","0175","0176","0178","0179"];
 
 _phoneNumberLengthAfghan = [6,6];
 _phoneNumberLengthGerman = [6,7];
 
 _endResult = 0;
 
-// convert prefix to array
+// convert prefix to number array
 _extractArrayFromPrefix = {
-	params ["_number"];
+	params ["_string"];
 	_result = [];
-
-	_string = str _number;
-
-	diag_log format ["grad-telephone: str number is %1", _string];
 
 	_splittedString = _string splitString "";
 
@@ -37,7 +33,7 @@ _extractArrayFromPrefix = {
 
 // random number from 0 - 9
 _getRandomDigit = {
-	_digit = floor (random 9.999);
+	_digit = ceil (random 8.999);
 	_digit
 };
 

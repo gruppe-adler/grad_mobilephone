@@ -1,15 +1,24 @@
 player addEventHandler ["InventoryClosed", {
-        _item = _this select 1;
-        if (typeOf _item == "ACE_Cellphone") then {
-			player unlinkItem "TFAR_rf7800str";
+       
+        if ("ACE_Cellphone" in items player) then {
+            if (!assignedItems player find "PLAYER_RADIO" >= 0) then {
+			     player unlinkItem "ItemRadio";
+            };
         };
 }];
 
 player addEventHandler ["Take", {
         _item = _this select 2;
-        if (typeOf _item == "ACE_Cellphone") then {
-        player unlinkItem "ItemRadio";
-			player linkItem "TFAR_rf7800str";
+
+        hintsilent format ["%1 take", _item];
+
+        if (_item == "ACE_Cellphone") then {
+            if (assignedItems player find "ItemRadio" >= 0) then {
+                player unassignItem "ItemRadio";
+            };
+		  player additem (player getVariable ["GRAD_telephone_dummyRadioClassname","ItemRadio"]);
+          [(player getVariable ["GRAD_telephone_dummyRadioClassname","ItemRadio"])] call TFAR_fnc_setActiveSwRadio;
+          hintsilent "FOUND NO RADIO, adding.";
         };
 }];
 

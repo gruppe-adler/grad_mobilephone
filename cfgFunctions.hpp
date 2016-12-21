@@ -2,7 +2,8 @@ class GRAD_Telephone {
     class SetupPlayer {
         file = grad-telephone\setup\player;
         class disableRiflemanRadio {};
-        class setUniqueIdleFrequency {};
+        class setupPlayerWithRadio {};
+        class isCurrentDummyRadio {};
 	};
 
 	class SetupServer {
