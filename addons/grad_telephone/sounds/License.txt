@@ -1,0 +1,9 @@
+PhoneRingBeep modified by nomisum, original author: 
+henrique85n, freesound.org, http://freesound.org/people/henrique85n/sounds/162019/, licensed under CC Attribution https://creativecommons.org/licenses/by/3.0/
+
+PhoneRingBeepBusy modified by nomisum, original author:
+henrique85n, freesound.org, http://freesound.org/people/henrique85n/sounds/162022/, licensed under CC Attribution https://creativecommons.org/licenses/by/3.0/
+
+PhoneRingUnknown modified by nomisum, original author:
+arvedkrynil, Wikimedia Commons, https://de.wikipedia.org/wiki/Datei:1TR110-1_Kap8.8_Hinweiston_ohne_Ansage.ogg, licsensed under GNU Free Documentation License
+https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2
