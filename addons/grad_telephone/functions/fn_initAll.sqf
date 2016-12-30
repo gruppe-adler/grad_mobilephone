@@ -1,3 +1,5 @@
+DEBUG_MODE = true;
+
 if (isServer or isDedicated) then {
 	[] spawn GRAD_fnc_initServer;
 };

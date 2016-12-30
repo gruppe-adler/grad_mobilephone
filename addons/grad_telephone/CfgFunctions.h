@@ -18,10 +18,12 @@ class CfgFunctions
 			class callWaiting;
 			class canReceive;
 			class fillDummyContacts;
+			class getRadio;
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
 			class getSelectedContactName;
 			class gotoHomescreen;	
+			class isCellphone;
 			class restoreDisplay;		
 			class setCallersPhoneFrequency;
 			class setNativePhoneFrequency;

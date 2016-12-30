@@ -23,7 +23,7 @@ _result = false;
 if (_canReceive find _state > 0) then {
 	_result = true;
 	_name setVariable ["GRAD_telephone_currentState", "receiving", true];
-	[player] remoteExec ["GRAD_fnc_callReceiving", _name, false];
+	[player,_name] remoteExec ["GRAD_fnc_callReceiving", _name, false];
 };
 
 // unnecessary really, but gives better understanding

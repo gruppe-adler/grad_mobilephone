@@ -2,14 +2,15 @@ class nokia3310_radio_dialog
 {
 	idd = IDD_NOKIA3310STR_RADIO_DIALOG;
 	movingEnable = 1;
-	controlsBackground[] = { };
+	controlsBackground[] = { background };
 	objects[] = { };
-	onUnload = "['OnRadioOpen', player, [player, TF_sw_dialog_radio, true, 'nokia3310_radio_dialog', false]] call TFAR_fnc_fireEventHandlers;";
-	onLoad = "if(sunOrMoon < 0.2) then { ((_this select 0) displayCtrl TF_BACKGROUND_ID) ctrlSetText '\grad_telephone\nokia3310\nokia3310_n.paa'; }; [] call GRAD_fnc_restoreDisplay;";
+	onUnload = "";
+	onLoad = "if(sunOrMoon < 0.2) then { ((_this select 0) displayCtrl TF_BACKGROUND_ID) ctrlSetText '\grad_telephone\nokia3310\nokia3310_n.paa'; };";
 		
 	controls[]=
 	{
-		background,
+		
+		carrier,
 		decrease_volume,
 		increase_volume,
 		speakers,
@@ -31,6 +32,16 @@ class nokia3310_radio_dialog
 		y = 0.05 * safezoneH + safezoneY;
 		w = 0.27878 * safezoneW;
 		h = 1.034 * safezoneH;
+		moving = 1;
+	};
+	class carrier: background
+	{
+		idc = IDC_NOKIA3310STR_CARRIER;
+		text = "\grad_telephone\nokia3310\carrier_5.paa";
+		x = 0.268 * safezoneW + safezoneX;
+		y = 0.374 * safezoneH + safezoneY;
+		w = 0.0108 * safezoneW;
+		h = 0.1293 * safezoneH;
 		moving = 1;
 	};
 	class decrease_volume: HiddenButton

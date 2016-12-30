@@ -1,3 +1,5 @@
+#include "..\macros.h"
+
 params ["_action"];
 
 [] call GRAD_fnc_fillDummyContacts;
@@ -25,7 +27,7 @@ switch (_currentState) do {
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {diag_log "GRAD_telephone default: button with no action given";};
+			default {debugLog ("GRAD_telephone default: button with no action given");};
 		};
 	};
 	case "scrolling": {
@@ -43,7 +45,7 @@ switch (_currentState) do {
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {diag_log "GRAD_telephone scrolling: button with no action given";};
+			default {debugLog ("GRAD_telephone scrolling: button with no action given");};
 		};
 	};
 	case "hint": {
@@ -60,7 +62,7 @@ switch (_currentState) do {
 			case "up": 	   {};
 			case "down": {};
 
-			default {diag_log "GRAD_telephone dialing: button with no action given";};
+			default {debugLog ("GRAD_telephone dialing: button with no action given");};
 		};
 	};
 	case "waiting": {
@@ -74,7 +76,7 @@ switch (_currentState) do {
 			case "up": 	   {};
 			case "down": {};
 
-			default {diag_log "GRAD_telephone waiting: button with no action given";};
+			default {debugLog ("GRAD_telephone waiting: button with no action given");};
 		};
 	};
 	case "receiving": {
@@ -88,7 +90,7 @@ switch (_currentState) do {
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {diag_log "GRAD_telephone receiving: button with no action given";};
+			default {debugLog ("GRAD_telephone receiving: button with no action given");};
 		};
 	};
 	case "talking": {
@@ -100,10 +102,10 @@ switch (_currentState) do {
 			case "up": 	   { };
 			case "down":   { };
 
-			default {diag_log "GRAD_telephone receiving: button with no action given";};
+			default {debugLog ("GRAD_telephone receiving: button with no action given");};
 		};
 	};
 
 
-	default {diag_log "GRAD_telephone: currentState is default";};
+	default {debugLog ("GRAD_telephone: currentState is default");};
 };
