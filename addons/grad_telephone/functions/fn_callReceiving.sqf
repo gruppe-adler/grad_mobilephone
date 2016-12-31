@@ -4,6 +4,8 @@ _vibrations = ["GRAD_telephone_phoneVibrate1", "GRAD_telephone_phoneVibrate2"];
 
 _receiver setVariable ["GRAD_telephone_currentState","receiving",true];
 
+[call TFAR_fnc_activeSwRadio, -1] call GRAD_fnc_showRadioInfo;
+
 // checking for player, because in SP our own display would be overwritten
 if (isPlayer _receiver) then {
 	[str _caller] call GRAD_fnc_setDisplayName;

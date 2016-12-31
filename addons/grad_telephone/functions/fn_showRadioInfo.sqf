@@ -31,7 +31,8 @@ _picture =getText(configFile >> "CfgWeapons" >> _radio >> "picture");
 
 _isDialing = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing";
 _isWaiting = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "waiting";
-_isCalling = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "talking";
+_isTalking = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "talking";
+_isCalling= player getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving";
 
 _status = "No Call established";
 
@@ -44,7 +45,11 @@ if (_isDialing) then {
 		_status = format ["waiting for %1...",_partner];
 	} else {
 		if (_isCalling) then {
-			_status = format ["talking to %1...",_partner];
+			_status = format ["%1 calling...",_partner];
+		} else {
+			if (_isTalking) then {
+				_status = format ["talking to %1",_partner];
+			};
 		};
 	};
 };

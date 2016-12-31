@@ -40,7 +40,7 @@ class nokia3310_radio_dialog
 		text = "\grad_telephone\nokia3310\carrier_5.paa";
 		x = 0.268 * safezoneW + safezoneX;
 		y = 0.374 * safezoneH + safezoneY;
-		w = 0.0108 * safezoneW;
+		w = 0.01742 * safezoneW;
 		h = 0.1293 * safezoneH;
 		moving = 1;
 	};

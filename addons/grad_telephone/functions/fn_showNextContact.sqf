@@ -22,8 +22,8 @@ if (_up) then {
 	if (_selector < 0) then {_selector = (_count - 1);};
 };
 
-_nextEntryName = _list select _selector select 0;
-_nextEntryNumber = _list select _selector select 1;
+_nextEntryName = _list select _selector select 1;
+_nextEntryNumber = _list select _selector select 2;
 
 [_nextEntryName] call GRAD_fnc_setDisplayName;
 [_nextEntryNumber] call GRAD_fnc_setDisplayNumber;

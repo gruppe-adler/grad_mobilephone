@@ -6,29 +6,42 @@ class CfgFunctions
 		{
 			file="grad_telephone\functions";
 
-			class initAll{postInit = 1;};
-			class initClient;
-			class initServer;
-
 			class buttonPressed;
+
 			class callDialing;
 			class callReject;
-			class callTalking;
 			class callReceiving;
+			class callTalking;
 			class callWaiting;
-			class canReceive;
+			class callWaitingDroppedPhone;
+
 			class fillDummyContacts;
+
 			class getRadio;
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
 			class getSelectedContactName;
+			class getSelectedContactRadioID;
+			class getUniquePhoneNumber;
 			class gotoHomescreen;	
+
+			class interactGiveNumber;
+			class interactReceiveNumber;
+			class initAll{postInit = 1;};
+			class initClient;
+			class initServer;
 			class isCellphone;
+
+			class playGiveAnimation;
+			class pleaseReceive;
+
 			class restoreDisplay;		
+
 			class setCallersPhoneFrequency;
 			class setNativePhoneFrequency;
 			class setDisplayName;
 			class setDisplayNumber;
+
 			class showHint;
 			class showHintCondition;
 			class showNextContact;

@@ -1,6 +1,6 @@
 params ["_ai"];
 
-_result = nil;
+_result = "none";
 
 {	
 	if (_x call TFAR_fnc_isRadio) exitWith {_result = _x};

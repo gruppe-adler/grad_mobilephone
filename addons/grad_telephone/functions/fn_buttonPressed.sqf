@@ -27,7 +27,7 @@ switch (_currentState) do {
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {debugLog ("GRAD_telephone default: button with no action given");};
+			default {diag_log "GRAD_telephone default: button with no action given";};
 		};
 	};
 	case "scrolling": {
@@ -39,13 +39,14 @@ switch (_currentState) do {
 					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "waiting" ||
 					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "calling"
 				}] spawn GRAD_fnc_showHintCondition;
-				_target = call GRAD_fnc_getSelectedContactName;
-				[_target] spawn GRAD_fnc_callDialing;
+				_targetRadioID = call GRAD_fnc_getSelectedContactRadioID;
+				_targetName = call GRAD_fnc_getSelectedContactRadioID;
+				[_targetRadioID, _targetName] spawn GRAD_fnc_callDialing;
 			};
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {debugLog ("GRAD_telephone scrolling: button with no action given");};
+			default {diag_log "GRAD_telephone scrolling: button with no action given";};
 		};
 	};
 	case "hint": {
@@ -62,7 +63,7 @@ switch (_currentState) do {
 			case "up": 	   {};
 			case "down": {};
 
-			default {debugLog ("GRAD_telephone dialing: button with no action given");};
+			default {diag_log "GRAD_telephone dialing: button with no action given";};
 		};
 	};
 	case "waiting": {
@@ -76,7 +77,7 @@ switch (_currentState) do {
 			case "up": 	   {};
 			case "down": {};
 
-			default {debugLog ("GRAD_telephone waiting: button with no action given");};
+			default {diag_log "GRAD_telephone waiting: button with no action given";};
 		};
 	};
 	case "receiving": {
@@ -90,7 +91,7 @@ switch (_currentState) do {
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
 
-			default {debugLog ("GRAD_telephone receiving: button with no action given");};
+			default {diag_log "GRAD_telephone receiving: button with no action given";};
 		};
 	};
 	case "talking": {
@@ -102,10 +103,10 @@ switch (_currentState) do {
 			case "up": 	   { };
 			case "down":   { };
 
-			default {debugLog ("GRAD_telephone receiving: button with no action given");};
+			default {diag_log "GRAD_telephone receiving: button with no action given";};
 		};
 	};
 
 
-	default {debugLog ("GRAD_telephone: currentState is default");};
+	default {diag_log "GRAD_telephone: currentState is default";};
 };

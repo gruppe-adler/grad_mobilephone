@@ -35,52 +35,52 @@ class CfgSounds
 	class GRAD_telephone_phoneRingBeep1
 	{
 		name = "phoneRingBeep1";
-		sound[] = {"\grad_telephone\sounds\phoneRingBeep1.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneRingBeep1.ogg",0.75,1};
 		titles[] = {};
 	};
 	class GRAD_telephone_phoneRingBeep2
 	{
 		name = "phoneRingBeep2";
-		sound[] = {"\grad_telephone\sounds\phoneRingBeep2.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneRingBeep2.ogg",0.75,1};
 		titles[] = {};
 	};
 
 	class GRAD_telephone_phoneRingBusy1
 	{
 		name = "phoneRingBusy1";
-		sound[] = {"\grad_telephone\sounds\phoneRingBusy1.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneRingBusy1.ogg",0.75,1};
 		titles[] = {};
 	};
 	class GRAD_telephone_phoneRingBusy2
 	{
 		name = "phoneRingBusy2";
-		sound[] = {"\grad_telephone\sounds\phoneRingBusy2.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneRingBusy2.ogg",0.75,1};
 		titles[] = {};
 	};
 	class GRAD_telephone_phoneRingBusy3
 	{
 		name = "phoneRingBusy3";
-		sound[] = {"\grad_telephone\sounds\phoneRingBusy3.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneRingBusy3.ogg",0.75,1};
 		titles[] = {};
 	};
 
 	class GRAD_telephone_phoneVibrate1
 	{
 		name = "phoneVibrate1";
-		sound[] = {"\grad_telephone\sounds\phoneVibrate1.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneVibrate1.ogg",1.1,1};
 		titles[] = {};
 	};
 	class GRAD_telephone_phoneVibrate2
 	{
 		name = "phoneVibrate2";
-		sound[] = {"\grad_telephone\sounds\phoneVibrate2.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneVibrate2.ogg",1.1,1};
 		titles[] = {};
 	};
 
 		class GRAD_telephone_phoneUnknown
 	{
 		name = "phoneUnknown";
-		sound[] = {"\grad_telephone\sounds\phoneUnknown.ogg",0.5,1};
+		sound[] = {"\grad_telephone\sounds\phoneUnknown.ogg",0.75,1};
 		titles[] = {};
 	};
 };
