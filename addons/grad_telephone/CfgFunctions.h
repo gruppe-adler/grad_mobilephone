@@ -17,15 +17,17 @@ class CfgFunctions
 
 			class fillDummyContacts;
 
+			class generatePhoneNumber;
 			class getRadio;
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
 			class getSelectedContactName;
 			class getSelectedContactRadioID;
 			class getUniquePhoneNumber;
-			class gotoHomescreen;	
+			class gotoHomescreen;
 
 			class interactGiveNumber;
+			class interactHasNumber;
 			class interactReceiveNumber;
 			class initAll{postInit = 1;};
 			class initClient;
@@ -46,6 +48,8 @@ class CfgFunctions
 			class showHintCondition;
 			class showNextContact;
 			class showRadioInfo;
+
+			class updateContactList;
 		};
 	};
 };

@@ -15,12 +15,19 @@ if (_up) then {
 	_selector = _selector + 1;
 
 	if (_selector > (_count - 1)) then {_selector = 0;};
+	diag_log format ["going up to entry %1", _selector];
 
 } else {
 	_selector = _selector - 1;
 
 	if (_selector < 0) then {_selector = (_count - 1);};
+	diag_log format ["going down to entry %1", _selector];
 };
+
+// [_radioID, _name, _number]
+
+diag_log format ["name %1", _list select _selector select 1];
+diag_log format ["number %1", _list select _selector select 2];
 
 _nextEntryName = _list select _selector select 1;
 _nextEntryNumber = _list select _selector select 2;

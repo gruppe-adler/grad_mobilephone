@@ -40,7 +40,7 @@ switch (_currentState) do {
 					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "calling"
 				}] spawn GRAD_fnc_showHintCondition;
 				_targetRadioID = call GRAD_fnc_getSelectedContactRadioID;
-				_targetName = call GRAD_fnc_getSelectedContactRadioID;
+				_targetName = call GRAD_fnc_getSelectedContactName;
 				[_targetRadioID, _targetName] spawn GRAD_fnc_callDialing;
 			};
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};

@@ -80,7 +80,7 @@ player addEventHandler ["InventoryClosed", {
     	"interactGiveNumber", 
     	"Give phone number", 
     	"grad_telephone\data\give.paa", 
-    	{[] call GRAD_fnc_interactGiveNumber;}, 
+    	{[(_this select 1), (_this select 0)] call GRAD_fnc_interactGiveNumber;}, 
     	{([player] call GRAD_fnc_isCellphone)}
 
     ] call ace_interact_menu_fnc_createAction;

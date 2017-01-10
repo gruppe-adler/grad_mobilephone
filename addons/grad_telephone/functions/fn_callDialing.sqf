@@ -70,13 +70,4 @@ if (!_foundRadioInUnits) then {
 	};
 };
 
-// diag_log format ["callDialing: didnt find %1 in playableunits", _radioID];
-
 [call TFAR_fnc_activeSwRadio, -1] call GRAD_fnc_showRadioInfo;
-
-/*
-
-ring tone delaybetween: 3.5
-busy tone delaybetween: 0.3
-
-*/

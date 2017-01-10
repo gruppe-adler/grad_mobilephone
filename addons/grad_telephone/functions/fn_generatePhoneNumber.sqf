@@ -5,6 +5,8 @@
 *
 */
 
+private ["_result"];
+
 params ["_existingNumbers"];
 
 _phonePrefixesAfghan = ["0701","0702","0703","0704","0705","0706","0707","0708","0799","0798","0797","0796","0795","0794","0793","0786","0787","0788","0789","0771","0772","0773","0774","0775","0776","0777","0778","0779"];
@@ -13,7 +15,7 @@ _phonePrefixesGerman = ["0150","0151","0152","0155","0157","0160","0162","0170",
 _phoneNumberLengthAfghan = [6,6];
 _phoneNumberLengthGerman = [6,7];
 
-_endResult = 0;
+_result = 0;
 
 // convert prefix to number array
 _extractArrayFromPrefix = {
@@ -60,12 +62,12 @@ _generateBaseNumber = {
 if (count _existingNumbers > 0) then {
 
 	// check if generated number already exists
-	while (_existingNumbers find _endResult < 0) do {
+	while {_existingNumbers find _existingNumbers < 0} do {
 
 		_phonePrefixCurrent = [selectRandom _phonePrefixesGerman] call _extractArrayFromPrefix;
 		_phoneBaseNumber = [_phoneNumberLengthGerman select 0, _phoneNumberLengthGerman select 1] call _generateBaseNumber;
 
-		_endResult = _phonePrefixCurrent + _phoneBaseNumber;
+		_result = _phonePrefixCurrent + _phoneBaseNumber;
 	};
 
 } else {
@@ -73,8 +75,14 @@ if (count _existingNumbers > 0) then {
 	_phonePrefixCurrent = [selectRandom _phonePrefixesGerman] call _extractArrayFromPrefix;
 	_phoneBaseNumber = [_phoneNumberLengthGerman select 0, _phoneNumberLengthGerman select 1] call _generateBaseNumber;
 
-	_endResult = _phonePrefixCurrent + _phoneBaseNumber;
+	_result = _phonePrefixCurrent + _phoneBaseNumber;
 
 };
+
+_endResult = "";
+
+{
+  _endResult = _endResult + str _x;
+} forEach _result;
 
 _endResult

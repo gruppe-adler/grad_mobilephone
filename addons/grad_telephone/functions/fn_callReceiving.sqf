@@ -10,6 +10,8 @@ _receiver setVariable ["GRAD_telephone_currentState","receiving",true];
 if (isPlayer _receiver) then {
 	[str _caller] call GRAD_fnc_setDisplayName;
 	["incoming call..."] call GRAD_fnc_setDisplayNumber;
+} else {
+	
 };
 
 while {_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
