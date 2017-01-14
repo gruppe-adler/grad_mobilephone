@@ -67,17 +67,24 @@ class CfgSounds
 	class GRAD_telephone_phoneVibrate1
 	{
 		name = "phoneVibrate1";
-		sound[] = {"\grad_telephone\sounds\phoneVibrate1.ogg",1.1,1};
+		sound[] = {"\grad_telephone\sounds\phoneVibrate1.ogg",1.5,1};
 		titles[] = {};
 	};
 	class GRAD_telephone_phoneVibrate2
 	{
 		name = "phoneVibrate2";
-		sound[] = {"\grad_telephone\sounds\phoneVibrate2.ogg",1.1,1};
+		sound[] = {"\grad_telephone\sounds\phoneVibrate2.ogg",1.5,1};
 		titles[] = {};
 	};
 
-		class GRAD_telephone_phoneUnknown
+	class GRAD_telephone_phoneRingOriginal
+	{
+		name = "GRAD_telephone_phoneRingOriginal";
+		sound[] = {"\grad_telephone\sounds\phoneRingOriginal.ogg",1.5,1};
+		titles[] = {};
+	};
+
+	class GRAD_telephone_phoneUnknown
 	{
 		name = "phoneUnknown";
 		sound[] = {"\grad_telephone\sounds\phoneUnknown.ogg",0.75,1};

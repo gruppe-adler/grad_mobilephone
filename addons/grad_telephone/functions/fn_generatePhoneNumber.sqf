@@ -15,7 +15,7 @@ _phonePrefixesGerman = ["0150","0151","0152","0155","0157","0160","0162","0170",
 _phoneNumberLengthAfghan = [6,6];
 _phoneNumberLengthGerman = [6,7];
 
-_result = 0;
+_result = [0];
 
 // convert prefix to number array
 _extractArrayFromPrefix = {
@@ -62,7 +62,7 @@ _generateBaseNumber = {
 if (count _existingNumbers > 0) then {
 
 	// check if generated number already exists
-	while {_existingNumbers find _existingNumbers < 0} do {
+	while {_existingNumbers find _existingNumbers >= 0} do {
 
 		_phonePrefixCurrent = [selectRandom _phonePrefixesGerman] call _extractArrayFromPrefix;
 		_phoneBaseNumber = [_phoneNumberLengthGerman select 0, _phoneNumberLengthGerman select 1] call _generateBaseNumber;
@@ -80,6 +80,8 @@ if (count _existingNumbers > 0) then {
 };
 
 _endResult = "";
+
+if (DEBUG_MODE) then { diag_log format ["generatePhoneNumber: %1", _result]; };
 
 {
   _endResult = _endResult + str _x;

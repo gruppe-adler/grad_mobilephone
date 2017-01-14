@@ -9,4 +9,4 @@ sleep 2;
 player setVariable ["GRAD_telephone_currentState", "default", true];
 player setVariable ["GRAD_telephone_currentPartner", "", true];
 
-[[player] call GRAD_fnc_setNativePhoneFrequency;
+[player] call GRAD_fnc_setNativePhoneFrequency;

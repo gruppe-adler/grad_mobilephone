@@ -44,8 +44,12 @@ if (_unit getVariable ["GRAD_telephone_currentPartner",""] == "") then {
 } else {
 	_unit setVariable ["GRAD_telephone_currentSignalStrength", _signalStrength, true];
 	_partner = _unit getVariable ["GRAD_telephone_currentPartner",""];
+
+	if (DEBUG_MODE) then {diag_log format ["cellTowerSignalStrengthCheck: partner is %1", _partner];};
+
 	_multi = [_unit, _partner] call GRAD_fnc_cellTowerCalculateTFARMultiplicator;
 	_unit setVariable ["tf_receivingDistanceMultiplicator", _multi];
 	_unit setVariable ["tf_sendingDistanceMultiplicator", _multi];
-	if (DEBUG_MODE) then {diag_log format ["setting tf multis to %1", _multi];};
+	
+	if (DEBUG_MODE) then {diag_log format ["cellTowerSignalStrengthCheck: setting tf multis to %1", _multi];};
 };

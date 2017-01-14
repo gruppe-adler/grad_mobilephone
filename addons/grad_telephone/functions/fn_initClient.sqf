@@ -35,10 +35,11 @@ player addEventHandler ["InventoryClosed", {
 }];
 
 
-['suppressRadioHint', 'OnRadioOpen', { 
+['refreshDisplay', 'OnRadioOpen', { 
 
 	if ([player] call GRAD_fnc_isCellphone) then { 
 		[] call GRAD_fnc_restoreDisplay;
+        [player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
 	}; 
 
 }, player] call TFAR_fnc_addEventHandler; 
@@ -47,11 +48,19 @@ player addEventHandler ["InventoryClosed", {
 ['suppressRadioHint', 'OnTangent', { 
 
 	if ([player] call GRAD_fnc_isCellphone) then { 
-		call TFAR_fnc_HideHint; diag_log format ['hiding hint'];
-		[([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
+
+        // if button is pressed, show hint, else hide
+        if (_this select 4) then {
+		  call TFAR_fnc_HideHint; // hijack original tfar hint, replace with our version
+    	  [([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
+        } else {
+          call TFAR_fnc_HideHint;
+        };
 	}; 
 
 }, player] call TFAR_fnc_addEventHandler; 
+
+
 
 
 // setup phone radio when received (mono ear, homescreen)

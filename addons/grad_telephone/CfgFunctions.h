@@ -9,6 +9,7 @@ class CfgFunctions
 			class buttonPressed;
 
 			class callDialing;
+			class callEnding;
 			class callIED;
 			class callReject;
 			class callReceiving;
@@ -16,6 +17,8 @@ class CfgFunctions
 			class callWaiting;
 			class callWaitingDroppedPhone;
 
+			class cellTowerCalculateTFARMultiplicator;
+			class cellTowerGetAttendeesDistance;
 			class cellTowerMarkerCreate;
 			class cellTowerRefreshSignalStrength;
 			class cellTowerSignalStrengthCheck;
