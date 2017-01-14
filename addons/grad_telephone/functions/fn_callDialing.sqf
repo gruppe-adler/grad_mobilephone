@@ -16,7 +16,10 @@ if (isMultiplayer) then {
 	_possibleCallTargets = switchableUnits;
 };
 
-sleep 4 - (random 2); // random
+// random sleep for establishing connection
+sleep 4 - (random 2);
+
+
 
 // playsound tut tut
 scopeName "_main";

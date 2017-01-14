@@ -1,6 +1,6 @@
 private ["_contactList"];
 
-params ["_unit", "_mode", "_radioID", "_name", "_number"];
+params ["_unit", "_mode", "_radioID", "_name", "_number", "_isIED"];
 
 _contactList = _unit getVariable ["GRAD_telephone_contacts", []];
 
@@ -16,6 +16,8 @@ if (_mode == "remove") then {
 
 //add note
 if (_mode == "add") then {
-    _contactList = _contactList + [[_radioID, _name, _number]];
+    _contactList = _contactList + [[_radioID, _name, _number, _isIED]];
     _unit setVariable ["GRAD_telephone_contacts", _contactList, true];
+
+    diag_log format ["updateContactList: updating with %1, %2, %3, %4", _radioID, _name, _number, _isIED];
 };

@@ -88,3 +88,80 @@ player addEventHandler ["InventoryClosed", {
 
     ["CAManBase",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 }, []] call CBA_fnc_waitUntilAndExecute;
+
+//add interaction nodes
+[{!isNull player}, {
+
+    _action = [
+    	"programIED", 
+    	"Program IED with your phone", 
+    	"grad_telephone\data\give.paa", 
+    	{[(_this select 1), (_this select 0)] call GRAD_fnc_programIED;	}, 
+    	{([(_this select 1)] call GRAD_fnc_isCellphone) && ([(_this select 0)] call GRAD_fnc_isNotInContacts)}
+
+    ] call ace_interact_menu_fnc_createAction;
+
+
+    ["ACE_Explosives_Place_IEDUrbanBig",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+}, []] call CBA_fnc_waitUntilAndExecute;
+
+//add interaction nodes
+[{!isNull player}, {
+
+    _action = [
+    	"programIED", 
+    	"Program IED with your phone", 
+    	"grad_telephone\data\give.paa", 
+    	{[(_this select 1), (_this select 0)] call GRAD_fnc_programIED;}, 
+    	{([(_this select 1)] call GRAD_fnc_isCellphone) && ([(_this select 0)] call GRAD_fnc_isNotInContacts)}
+
+    ] call ace_interact_menu_fnc_createAction;
+
+
+    ["ACE_Explosives_Place_IEDUrbanSmall",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+}, []] call CBA_fnc_waitUntilAndExecute;
+
+//add interaction nodes
+[{!isNull player}, {
+
+    _action = [
+    	"programIED", 
+    	"Program IED with your phone", 
+    	"grad_telephone\data\give.paa", 
+    	{[(_this select 1), (_this select 0)] call GRAD_fnc_programIED;}, 
+    	{([(_this select 1)] call GRAD_fnc_isCellphone) && ([(_this select 0)] call GRAD_fnc_isNotInContacts)}
+
+    ] call ace_interact_menu_fnc_createAction;
+
+
+    ["ACE_Explosives_Place_IEDLandBig",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+}, []] call CBA_fnc_waitUntilAndExecute;
+
+//add interaction nodes
+[{!isNull player}, {
+
+    _action = [
+    	"programIED", 
+    	"Program IED with your phone", 
+    	"grad_telephone\data\give.paa", 
+    	{[(_this select 1), (_this select 0)] call GRAD_fnc_programIED;}, 
+    	{([(_this select 1)] call GRAD_fnc_isCellphone) && ([(_this select 0)] call GRAD_fnc_isNotInContacts)}
+
+    ] call ace_interact_menu_fnc_createAction;
+
+
+    ["ACE_Explosives_Place_IEDLandSmall",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+}, []] call CBA_fnc_waitUntilAndExecute;
+
+
+
+/* CELLTOWER SYSTEM */
+
+if (!CELLTOWER_MODE) exitWith {};
+
+[{
+   (_this select 0) params ["_unit"];
+   
+   [_unit] call GRAD_fnc_cellTowerSignalStrengthCheck;
+
+}, 5, [player]] call CBA_fnc_addPerFrameHandler;

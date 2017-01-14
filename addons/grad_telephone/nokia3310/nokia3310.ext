@@ -5,7 +5,7 @@ class nokia3310_radio_dialog
 	controlsBackground[] = { background };
 	objects[] = { };
 	onUnload = "";
-	onLoad = "if(sunOrMoon < 0.2) then { ((_this select 0) displayCtrl TF_BACKGROUND_ID) ctrlSetText '\grad_telephone\nokia3310\nokia3310_n.paa'; };";
+	onLoad = "[] spawn GRAD_fnc_cellTowerRefreshSignalStrength; if(sunOrMoon < 0.2) then { ((_this select 0) displayCtrl TF_BACKGROUND_ID) ctrlSetText '\grad_telephone\nokia3310\nokia3310_n.paa'; };";
 		
 	controls[]=
 	{
@@ -37,7 +37,7 @@ class nokia3310_radio_dialog
 	class carrier: background
 	{
 		idc = IDC_NOKIA3310STR_CARRIER;
-		text = "\grad_telephone\nokia3310\carrier_5.paa";
+		text = "\grad_telephone\nokia3310\carrier_0.paa";
 		x = 0.268 * safezoneW + safezoneX;
 		y = 0.374 * safezoneH + safezoneY;
 		w = 0.01742 * safezoneW;

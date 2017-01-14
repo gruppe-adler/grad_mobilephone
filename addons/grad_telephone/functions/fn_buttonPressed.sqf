@@ -34,14 +34,19 @@ switch (_currentState) do {
 		switch (_action) do {
 			case "cancel": { [] call GRAD_fnc_gotoHomescreen;};
 			case "select": { 
-				["scrolling",1,"Calling...",{ 
-					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing" || 
-					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "waiting" ||
-					player getVariable ["GRAD_telephone_currentState", "noPhone"] == "calling"
-				}] spawn GRAD_fnc_showHintCondition;
+				["Calling..."] spawn GRAD_fnc_showHintUnlimited;
+
 				_targetRadioID = call GRAD_fnc_getSelectedContactRadioID;
 				_targetName = call GRAD_fnc_getSelectedContactName;
-				[_targetRadioID, _targetName] spawn GRAD_fnc_callDialing;
+
+				_isIED = call GRAD_fnc_isSelectedContactIED;
+
+				if (!_isIED) then {
+					
+					[_targetRadioID, _targetName] spawn GRAD_fnc_callDialing;
+				} else {
+					[_targetRadioID, _targetName] spawn GRAD_fnc_callIED;
+				};
 			};
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};

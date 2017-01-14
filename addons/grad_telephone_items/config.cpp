@@ -78,6 +78,7 @@ class CfgWeapons
     tf_parent = "tf_nokia3310";
     tf_additional_channel = 0;
     tf_dialogUpdate = "call TFAR_fnc_updateSWDialogToChannel;";
+    
   };
 
   TF_RADIO_IDS(tf_nokia3310,Nokia3310)

@@ -9,11 +9,19 @@ class CfgFunctions
 			class buttonPressed;
 
 			class callDialing;
+			class callIED;
 			class callReject;
 			class callReceiving;
 			class callTalking;
 			class callWaiting;
 			class callWaitingDroppedPhone;
+
+			class cellTowerMarkerCreate;
+			class cellTowerRefreshSignalStrength;
+			class cellTowerSignalStrengthCheck;
+			class cellTowerSpawn;
+
+			class destroyIED;
 
 			class fillDummyContacts;
 
@@ -32,10 +40,14 @@ class CfgFunctions
 			class initAll{postInit = 1;};
 			class initClient;
 			class initServer;
+			class isNotInContacts;
 			class isCellphone;
+			class isCellTowerReachable;
+			class isSelectedContactIED;
 
 			class playGiveAnimation;
 			class pleaseReceive;
+			class programIED;
 
 			class restoreDisplay;		
 
@@ -45,7 +57,7 @@ class CfgFunctions
 			class setDisplayNumber;
 
 			class showHint;
-			class showHintCondition;
+			class showHintUnlimited;
 			class showNextContact;
 			class showRadioInfo;
 
