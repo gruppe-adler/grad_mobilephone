@@ -9,8 +9,8 @@
 * Calling has typical delays for ring/busy signal
 * Night Skin for Phone
 * Localized German and English
-* Signal strength depending on distance to city (optional, secondary)
-* Ties to ACE3 Explosive Triggering Feature (secondary)
+* Signal strength depending on distance to nearest cell tower (optional, secondary)
+* Ability to connect to ACE IEDs to explode them
 
 ## Dependencies
 * ACE3
