@@ -1,4 +1,5 @@
 # grad-telephone (wip)
+[![Issues](https://img.shields.io/github/issues/gruppe-adler/grad-telephone.svg)](https://github.com/gruppe-adler/grad-telephone/issues)
 
 ## Goal of this mod
 * Extend Task Force Arrowhead Radio with cellphone behaviour
