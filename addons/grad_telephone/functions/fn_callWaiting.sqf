@@ -17,20 +17,32 @@ _wasAlreadyRinging = false;
 
 if (_receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving") then {
 		// ringing signal
-		_condition = true;
+		
 		while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
 			   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving"
 			} do {
-			_wasAlreadyRinging = true;
-			[_ringBeeps, _condition] spawn {
-		  		while {_this select 1} do {
-					playSound (selectRandom (_this select 0));
-					sleep 5;
-					diag_log format ["callWaiting: long beep"];
-				};
+				_wasAlreadyRinging = true;
+				
+				playSound (selectRandom _ringBeeps);
+				sleep 1;
+				diag_log format ["callWaiting: long beep"];
+
+				// really bad, will do a loop asap
+				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+				sleep 1;
+				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+				sleep 1;
+				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+				sleep 1;
+				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+				sleep 1;
 			};
 		};
-	_condition = false;
+	
 };
 
 

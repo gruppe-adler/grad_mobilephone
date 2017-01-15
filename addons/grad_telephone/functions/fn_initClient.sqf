@@ -31,7 +31,7 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
         } else {
         	["preventChannelSwitchEH", "OnSWchannelSet", {
     	    	[(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel;
-    		}, Player] call TFAR_fnc_addEventHandler;
+    		}, player] call TFAR_fnc_addEventHandler;
     		[(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwStereo;
     		[player] call GRAD_fnc_setNativePhoneFrequency;
     		[player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
@@ -70,13 +70,14 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     ["addRadioSpecifications", "OnRadiosReceived", {
 
     	if ([player] call GRAD_fnc_isCellphone) then {
+    		player setVariable ["GRAD_telephone_currentState", "default", true];
 
     		[(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwStereo;
     		[player] call GRAD_fnc_setNativePhoneFrequency;
     		// prevent channel switching (always 1)
     		["preventChannelSwitchEH", "OnSWchannelSet", {
     		    [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel;
-    		}, Player] call TFAR_fnc_addEventHandler;
+    		}, player] call TFAR_fnc_addEventHandler;
     		[player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
     	};
 

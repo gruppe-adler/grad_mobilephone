@@ -20,7 +20,7 @@ while {_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting
   } do {
 
   	[_receiver, _condition] spawn {
-  		while {_condition} do {
+  		while {_this select 1} do {
 			[(_this select 0), ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
 			sleep 3.5;
 		};
