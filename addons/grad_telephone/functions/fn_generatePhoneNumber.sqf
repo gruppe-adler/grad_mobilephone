@@ -58,26 +58,18 @@ _generateBaseNumber = {
 	_number
 };
 
-// check if any numbers were generated before
-if (count _existingNumbers > 0) then {
 
-	// check if generated number already exists
-	while {_existingNumbers find _existingNumbers >= 0} do {
+// check if generated number already exists
+while {true} do {
 
-		_phonePrefixCurrent = [selectRandom _phonePrefixesGerman] call _extractArrayFromPrefix;
-		_phoneBaseNumber = [_phoneNumberLengthGerman select 0, _phoneNumberLengthGerman select 1] call _generateBaseNumber;
-
-		_result = _phonePrefixCurrent + _phoneBaseNumber;
-	};
-
-} else {
-	
 	_phonePrefixCurrent = [selectRandom _phonePrefixesGerman] call _extractArrayFromPrefix;
 	_phoneBaseNumber = [_phoneNumberLengthGerman select 0, _phoneNumberLengthGerman select 1] call _generateBaseNumber;
 
 	_result = _phonePrefixCurrent + _phoneBaseNumber;
 
+	if (_existingNumbers find _result == -1) exitWith {};
 };
+
 
 _endResult = "";
 

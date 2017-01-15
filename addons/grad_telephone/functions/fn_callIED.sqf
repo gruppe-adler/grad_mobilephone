@@ -11,12 +11,12 @@ sleep ((random 3) + 2);
 if ([_ied] call GRAD_fnc_isCellTowerReachable && [_player] call GRAD_fnc_isCellTowerReachable) then {
 	if (player distance2D _nearestMarkerPlayer > MAX_CELLTOWER_RANGE) exitWith {
 		player setVariable ["GRAD_telephone_currentState", "default", true];
-		player setVariable ["GRAD_telephone_currentPartner", "", true];
+		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
 		["Kein Netz"] spawn GRAD_fnc_showHintUnlimited;
 	};
 	if (_ied distance2D _nearestMarkerIED > MAX_CELLTOWER_RANGE) exitWith {
 		player setVariable ["GRAD_telephone_currentState", "default", true];
-		player setVariable ["GRAD_telephone_currentPartner", "", true];
+		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
 		["Teilnehmer nicht erreichbar"] spawn GRAD_fnc_showHintUnlimited;
 	};
 };
@@ -26,7 +26,6 @@ player setVariable ["GRAD_telephone_currentState","waiting",true];
 
 _ringBeeps = ["GRAD_telephone_phoneRingBeep1", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2"];
 _busyBeeps = ["GRAD_telephone_phoneRingBusy1", "GRAD_telephone_phoneRingBusy2", "GRAD_telephone_phoneRingBusy3"];
-_vibrations = ["GRAD_telephone_phoneVibrate1", "GRAD_telephone_phoneVibrate2"];
 // diag_log format ["start waiting for %1", _name];
 
 _wasAlreadyRinging = false;
@@ -35,13 +34,12 @@ _wasAlreadyRinging = false;
 
 
 // while player is waiting for feedback, play ringing beeps
+
 while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
-	if (!alive _ied) then {
+		if (!alive _ied) then {
 			playSound "GRAD_telephone_phoneUnknown";
-			diag_log format ["callIED: IED unknown"];
 			sleep 2;
 		};
-
 	if (alive _ied) exitWith {
 		diag_log format ["callIED: long beep"];
 		
@@ -49,10 +47,12 @@ while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"
 			_wasAlreadyRinging = true;
 			
 			playSound (selectRandom _ringBeeps);
-			_ied say3D (selectRandom _vibrations);
+			
+			[_ied, ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
 			sleep 0.55;
+			
 			[_ied] call GRAD_fnc_destroyIED;
-			// [[_ied], 0] call ace_explosives_fnc_scriptedExplosive;
+
 			while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
 				playSound (selectRandom _busyBeeps); 
 				sleep 0.35; 

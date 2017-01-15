@@ -38,12 +38,13 @@ switch (_currentState) do {
 
 				_targetRadioID = call GRAD_fnc_getSelectedContactRadioID;
 				_targetName = call GRAD_fnc_getSelectedContactName;
+				_targetObject = call GRAD_fnc_getSelectedContactObject;
 
 				_isIED = call GRAD_fnc_isSelectedContactIED;
 
 				if (!_isIED) then {
 					
-					[_targetRadioID, _targetName] spawn GRAD_fnc_callDialing;
+					[_targetRadioID, _targetName, _targetObject] spawn GRAD_fnc_callDialing;
 				} else {
 					[_targetRadioID, _targetName] spawn GRAD_fnc_callIED;
 				};
@@ -88,7 +89,7 @@ switch (_currentState) do {
 	case "receiving": {
 		switch (_action) do {
 			case "cancel": {
-				[] call GRAD_fnc_callReject;
+				[player] call GRAD_fnc_callReject;
 			};
 			case "select": { 
 				[] call GRAD_fnc_callTalking;
@@ -109,6 +110,16 @@ switch (_currentState) do {
 			case "down":   { };
 
 			default {diag_log "GRAD_telephone receiving: button with no action given";};
+		};
+	};
+	case "rejected": {
+		switch (_action) do {
+			case "cancel": { [] call GRAD_fnc_gotoHomescreen;};
+			case "select": { };
+			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
+			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
+
+			default {diag_log "GRAD_telephone scrolling: button with no action given";};
 		};
 	};
 

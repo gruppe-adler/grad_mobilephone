@@ -1,5 +1,5 @@
-PHONENUMBERS = [] call CBA_fnc_hashCreate;
-
+PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
+PHONENUMBERS_ARRAY = [];
 
 
 if (!CELLTOWER_MODE) exitWith {};

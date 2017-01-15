@@ -2,7 +2,7 @@ private ["_distance", "_strengthCaller", "_strengthCalled", "_maxDistanceMultipl
 
 params ["_caller", "_called"];
 
-_multiplicator = 1;
+_multiplicator = 2;
 
 // needed to calculate TFAR multiplicator with
 _distance = [_caller, _called] call GRAD_fnc_cellTowerGetAttendeesDistance;
@@ -10,12 +10,16 @@ _distance = [_caller, _called] call GRAD_fnc_cellTowerGetAttendeesDistance;
 _strengthCaller = _caller getVariable ["GRAD_telephone_currentSignalStrength",0];
 _strengthCalled = _called getVariable ["GRAD_telephone_currentSignalStrength",0];
 
+if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _strengthCaller = %1, _strengthCalled = %2", _strengthCaller, _strengthCalled]; };
+
 // 100k is hardwired phone range
 _maxDistanceMultiplicator = _distance/100000;
 
-_overallStrength = (_strengthCalled + _strengthCaller)/2;
+_overallStrength = floor (_strengthCalled + _strengthCaller)/2;
 
-switch {floor (_overallStrength)} do {
+if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _overAllStrength = %1", _overallStrength]; };
+
+switch (_overallStrength) do {
 	case 0: { 
 		_multiplicator = 0;
 	};
@@ -33,11 +37,11 @@ switch {floor (_overallStrength)} do {
 	};
 	
 	case 4: {
-		_multiplicator = _maxDistanceMultiplicator * 1.7;
+		_multiplicator = _maxDistanceMultiplicator * 2;
 	};
 	
 	case 5: {
-		_multiplicator = _maxDistanceMultiplicator * 2;
+		_multiplicator = _maxDistanceMultiplicator * 3;
 	};
 	
 	default {diag_log format ["error calculating TFAR multiplicator gave neither 0,1,2,3,4,5."];};

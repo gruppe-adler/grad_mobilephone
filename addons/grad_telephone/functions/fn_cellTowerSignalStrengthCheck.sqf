@@ -39,11 +39,11 @@ if (_distance >= _d1) then {
 };
 
 // store only locally for performance reasons if no connection established
-if (_unit getVariable ["GRAD_telephone_currentPartner",""] == "") then {
+if (isNull (_unit getVariable ["GRAD_telephone_currentPartner",objNull])) then {
 	_unit setVariable ["GRAD_telephone_currentSignalStrength", _signalStrength];
 } else {
 	_unit setVariable ["GRAD_telephone_currentSignalStrength", _signalStrength, true];
-	_partner = _unit getVariable ["GRAD_telephone_currentPartner",""];
+	_partner = _unit getVariable ["GRAD_telephone_currentPartner",objNull];
 
 	if (DEBUG_MODE) then {diag_log format ["cellTowerSignalStrengthCheck: partner is %1", _partner];};
 

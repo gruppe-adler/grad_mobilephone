@@ -33,6 +33,7 @@ class CfgFunctions
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
 			class getSelectedContactName;
+			class getSelectedContactObject;
 			class getSelectedContactRadioID;
 			class getUniquePhoneNumber;
 			class gotoHomescreen;

@@ -13,8 +13,8 @@ _cacheNumber = ctrlText TF_MICRODAGR_EDIT_ID;
 [""] call GRAD_fnc_setDisplayNumber;
 
 
-sleep _seconds;
+// sleep _seconds;
 
 // restore old content
-[_cacheName] call GRAD_fnc_setDisplayName;
-[_cacheNumber] call GRAD_fnc_setDisplayNumber;
+// [_cacheName] call GRAD_fnc_setDisplayName;
+// [_cacheNumber] call GRAD_fnc_setDisplayNumber;
