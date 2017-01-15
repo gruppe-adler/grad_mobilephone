@@ -18,68 +18,54 @@ _wasAlreadyRinging = false;
 if (_receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving") then {
 		// ringing signal
 		
-		while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
-			   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving"
-			} do {
-				_wasAlreadyRinging = true;
-				
-				playSound (selectRandom _ringBeeps);
-				sleep 1;
-				diag_log format ["callWaiting: long beep"];
+while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
+	   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving"
+	} do {
+		_wasAlreadyRinging = true;
+		
+		playSound (selectRandom _ringBeeps);
+		sleep 1;
+		diag_log format ["callWaiting: long beep"];
 
-				// really bad, will do a loop asap
-				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
-				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
-				sleep 1;
-				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
-				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
-				sleep 1;
-				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
-				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
-				sleep 1;
-				if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
-				   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
-				sleep 1;
-			};
-		};
-	
-};
-
-
-
-// if player decides to end call OR target changes status, check again if transmission should be established
-if (player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
-	_receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "talking"
-	) then {
-
-	if (DEBUG_MODE) then { diag_log format ["callWaiting: target changed status to talking"];};
-
-	[_receiverObject, 
-		[_receiverObject] call GRAD_fnc_getNativePhoneFrequency, 
-		[_receiverObject] call GRAD_fnc_getNativePhoneCode
-	] remoteExec ["setCallersPhoneFrequency", _receiverObject, false];
-	[] call GRAD_fnc_callTalking;
-} else {
-	// handle AI for testing purposes
-	if (!isPlayer _receiverObject) then {
-		[_receiverObject] spawn {
-			_obj = _this select 0;
-			if (random 2 > 1) then {
-				_obj setVariable ["GRAD_telephone_currentState","talking", true];
-			} else {
-				_obj setVariable ["GRAD_telephone_currentState","rejected", true];
-				sleep 1;
-				_obj setVariable ["GRAD_telephone_currentState","default", true];
-			};
-		};
-	};
-
-	// busy signal or rejected signal
-	while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
-		playSound (selectRandom _busyBeeps);
-		diag_log format ["callWaiting: short beep"];
-		if (!_wasAlreadyRinging) then { sleep 0.55;	} else { sleep 0.35; };
+		// really bad, will do a loop asap
+		if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+		   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+		sleep 1;
+		if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+		   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+		sleep 1;
+		if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+		   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+		sleep 1;
+		if (player getVariable ["GRAD_telephone_currentState","noPhone"] != "waiting" &&
+		   _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] != "receiving") exitWith {};
+		sleep 1;
 	};
 };
+
+
+
+
+// handle AI for testing purposes
+if (!isPlayer _receiverObject) then {
+	[_receiverObject] spawn {
+		_obj = _this select 0;
+		if (random 2 > 1) then {
+			_obj setVariable ["GRAD_telephone_currentState","talking", true];
+		} else {
+			_obj setVariable ["GRAD_telephone_currentState","rejected", true];
+			sleep 1;
+			_obj setVariable ["GRAD_telephone_currentState","default", true];
+		};
+	};
+};
+
+// busy signal or rejected signal
+while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
+	playSound (selectRandom _busyBeeps);
+	diag_log format ["callWaiting: short beep"];
+	if (!_wasAlreadyRinging) then { sleep 0.55;	} else { sleep 0.35; };
+};
+
 
 // if (DEBUG_MODE) then { diag_log format ["callWaiting: target changed status to %1", _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"]];};

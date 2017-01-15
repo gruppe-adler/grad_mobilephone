@@ -36,19 +36,23 @@ _isCalling= player getVariable ["GRAD_telephone_currentState", "noPhone"] == "re
 
 _status = "No Call established";
 
-_partner = player getVariable ["GRAD_telephone_currentPartner", ""];
+_partnerObject = (player getVariable ["GRAD_telephone_currentPartner", objNull]);
+
+if (!isNull _partnerObject) exitWith {};
+
+_partnerName = name _partnerObject;
 
 if (_isDialing) then {
-	_status = format ["dialing %1...",_partner];
+	_status = format ["dialing %1...",_partnerName];
 } else {
 	if (_isWaiting) then {
-		_status = format ["waiting for %1...",_partner];
+		_status = format ["waiting for %1...",_partnerName];
 	} else {
 		if (_isCalling) then {
-			_status = format ["%1 calling...",_partner];
+			_status = format ["%1 calling...",_partnerName];
 		} else {
 			if (_isTalking) then {
-				_status = format ["talking to %1",_partner];
+				_status = format ["talking to %1",_partnerName];
 			};
 		};
 	};

@@ -17,7 +17,7 @@ _maxDistanceMultiplicator = _distance/100000;
 
 _overallStrength = floor (_strengthCalled + _strengthCaller)/2;
 
-if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _overAllStrength = %1", _overallStrength]; };
+if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _distance is %2, _overAllStrength = %1", _overallStrength, _distance]; };
 
 switch (_overallStrength) do {
 	case 0: { 
@@ -46,5 +46,8 @@ switch (_overallStrength) do {
 	
 	default {diag_log format ["error calculating TFAR multiplicator gave neither 0,1,2,3,4,5."];};
 };
+
+// TODO: THIS IS ONLY DEBUG
+_multiplicator = 1;
 
 _multiplicator

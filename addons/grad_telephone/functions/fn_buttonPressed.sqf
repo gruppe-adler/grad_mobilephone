@@ -92,7 +92,7 @@ switch (_currentState) do {
 				[player] call GRAD_fnc_callReject;
 			};
 			case "select": { 
-				[] call GRAD_fnc_callTalking;
+				[player getVariable ["GRAD_telephone_currentPartner",objNull], player] call GRAD_fnc_callAccept;
 			};
 			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
 			case "down":   { [false] spawn GRAD_fnc_showNextContact;};

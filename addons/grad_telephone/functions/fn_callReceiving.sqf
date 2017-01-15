@@ -14,20 +14,21 @@ if (isPlayer _receiver) then {
 	["incoming call..."] call GRAD_fnc_setDisplayNumber;
 };
 
-_condition = true;
+
 while {_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" &&
    	_receiver getVariable ["GRAD_telephone_currentState","noPhone"] == "receiving"
   } do {
 
-  	[_receiver, _condition] spawn {
-  		while {_this select 1} do {
-			[(_this select 0), ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
-			sleep 3.5;
-		};
-	};
+  	// todo: this is ugly shit
+  	[(_this select 0), ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
+	sleep 1;
+	if (_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" && _receiver getVariable ["GRAD_telephone_currentState","noPhone"] == "receiving") exitWith {};
+	sleep 1;
+	if (_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" && _receiver getVariable ["GRAD_telephone_currentState","noPhone"] == "receiving") exitWith {};
+	sleep 1;
+	if (_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" && _receiver getVariable ["GRAD_telephone_currentState","noPhone"] == "receiving") exitWith {};
+	sleep 0.5;
 };
-
-_condition = false;
 
 if (_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "rejected") then {
 	[_receiver] call GRAD_fnc_callReject;

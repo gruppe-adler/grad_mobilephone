@@ -8,6 +8,7 @@ class CfgFunctions
 
 			class buttonPressed;
 
+			class callAccept;
 			class callDialing;
 			class callEnding;
 			class callIED;
