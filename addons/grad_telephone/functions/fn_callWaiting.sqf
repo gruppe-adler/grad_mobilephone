@@ -9,6 +9,8 @@ player setVariable ["GRAD_telephone_currentState","waiting",true];
 _ringBeeps = ["GRAD_telephone_phoneRingBeep1", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2", "GRAD_telephone_phoneRingBeep2"];
 _busyBeeps = ["GRAD_telephone_phoneRingBusy1", "GRAD_telephone_phoneRingBusy2", "GRAD_telephone_phoneRingBusy3"];
 
+
+
 // diag_log format ["start waiting for %1", _name];
 
 _wasAlreadyRinging = false;

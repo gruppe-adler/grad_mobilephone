@@ -6,6 +6,7 @@ params ["_radioID", "_name", "_targetObject"];
 
 player setVariable ["GRAD_telephone_currentState", "dialing", true];
 player setVariable ["GRAD_telephone_currentPartner", _targetObject, true];
+_targetObject setVariable ["GRAD_telephone_currentPartner", player, true];
 
 _possibleCallTargets = [];
 _foundRadioInUnits = false;

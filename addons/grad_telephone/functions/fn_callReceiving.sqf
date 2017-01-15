@@ -20,7 +20,7 @@ while {_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting
   } do {
 
   	// todo: this is ugly shit
-  	[(_this select 0), ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
+  	[_receiver, ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
 	sleep 1;
 	if (_caller getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting" && _receiver getVariable ["GRAD_telephone_currentState","noPhone"] == "receiving") exitWith {};
 	sleep 1;
