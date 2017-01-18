@@ -14,7 +14,6 @@ class CfgFunctions
 			class callIED;
 			class callReject;
 			class callReceiving;
-			class callTalking;
 			class callWaiting;
 			class callWaitingDroppedPhone;
 

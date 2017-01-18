@@ -103,7 +103,7 @@ switch (_currentState) do {
 	case "talking": {
 		switch (_action) do {
 			case "cancel": {
-				[] call GRAD_fnc_callEnding;
+				[] spawn GRAD_fnc_callEnding;
 			};
 			case "select": { };
 			case "up": 	   { };

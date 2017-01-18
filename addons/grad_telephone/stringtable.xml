@@ -2,47 +2,49 @@
 <Project ID="GRAD">
 	<Package ID="Telephone">
 		<Container ID="Interface">
-			<Key ID="STR_radio_same_lr_frequencies_for_side">
+			<Key ID="STR_GRAD_radio_UI_select">
 				<Original>
-					Same LR frequencies for side
+					Select
 				</Original>
-				<French>
-					Mêmes fréquences LP pour l'équipe
-				</French>
+				<German>
+					Auswählen
+				</German>
+				<English>
+					Select
+				</English>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_cancel">
+				<Original>
+					Cancel
+				</Original>
+				<German>
+					Abbrechen
+				</German>
+				<English>
+					Cancel
+				</English>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_up">
+				<Original>
+					Up
+				</Original>
+				<German>
+					Hoch
+				</German>
+				<English>
+					Up
+				</English>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_down">
+				<Original>
+					Select
+				</Original>
 				<German>
 					Gleiche langstrecken-Frequenzen für unterschiedlichen Fraktionen
 				</German>
-				<Polish>
+				<English>
 					Takie same częstotliwości LR dla strony
-				</Polish>
-			</Key>
-			<Key ID="STR_radio_same_dd_frequencies_for_side">
-				<Original>
-					Same DD frequencies for side
-				</Original>
-				<French>
-					Mêmes fréquences DD pour l'équipe
-				</French>
-				<German>
-					Gleiche unterwasser-Frequenzen für unterschiedlichen Fraktionen
-				</German>
-				<Polish>
-					Takie same częstotliwości DD dla strony
-				</Polish>
-			</Key>
-			<Key ID="STR_radio_default_radioVolume">
-				<Original>
-					Default radio volume
-				</Original>
-				<French>
-					Volume par défaut de la radio
-				</French>
-				<German>
-					Standard Funklautstärke
-				</German>
-				<Polish>
-					Domyślna głośność radia
-				</Polish>
+				</English>
 			</Key>
 		</Container>
 	</Package>

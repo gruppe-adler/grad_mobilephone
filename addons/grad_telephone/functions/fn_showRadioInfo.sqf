@@ -29,12 +29,9 @@ _realname = (_splitThisShit select 0) + (_splitThisShit select 1);
 
 _picture =getText(configFile >> "CfgWeapons" >> _radio >> "picture");
 
-_isDialing = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing";
-_isWaiting = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "waiting";
-_isTalking = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "talking";
-_isCalling= player getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving";
+_currentState = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing";
 
-_status = "No Call established";
+_text = format ["Kein Gespräch"];
 
 _partnerObject = (player getVariable ["GRAD_telephone_currentPartner", objNull]);
 
@@ -42,20 +39,14 @@ if (!isNull _partnerObject) exitWith {};
 
 _partnerName = name _partnerObject;
 
-if (_isDialing) then {
-	_status = format ["dialing %1...",_partnerName];
-} else {
-	if (_isWaiting) then {
-		_status = format ["waiting for %1...",_partnerName];
-	} else {
-		if (_isCalling) then {
-			_status = format ["%1 calling...",_partnerName];
-		} else {
-			if (_isTalking) then {
-				_status = format ["talking to %1",_partnerName];
-			};
-		};
-	};
+switch (_currentState) do {
+	case "dialing": { _text = format ["Wähle %1",_partnerName]; };
+	case "waiting": { _text = format ["Wähle %1",_partnerName]; };
+	case "talking": { _text = format ["Gespräch mit %1",_partnerName]; };
+	case "receiving": { _text = format ["%1 ruft an",_partnerName]; };
+	case "ending": { _text = format ["beende Gespräch mit %1",_partnerName]; };
+	case "default": { _text = format ["Kein Gespräch"]; };
+	default { _text = format ["Kein Gespräch"]; };
 };
 
 
@@ -63,6 +54,6 @@ _imagesize = "1.6";
 
 _hintText = format [("<t size='1' align='center'>%1 <img size='" + _imagesize + 
 	"' image='%2'/></t><br />
-	<t align='center'>%3</t><br />"), _realname,_picture,_status];
+	<t align='center'>%3</t><br />"), _realname,_picture,_text];
 	
 [parseText (_hintText), _timeout] call TFAR_fnc_showHint;
