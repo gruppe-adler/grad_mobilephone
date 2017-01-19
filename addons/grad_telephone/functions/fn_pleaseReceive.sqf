@@ -2,7 +2,7 @@ params ["_senderObject", "_receiverObject"];
 
 _canReceive = [
 	"default",
-	"scrolling",
+	"scrolling_contacts",
 	"hint"
 ];
 

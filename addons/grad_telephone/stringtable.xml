@@ -3,48 +3,60 @@
 	<Package ID="Telephone">
 		<Container ID="Interface">
 			<Key ID="STR_GRAD_radio_UI_select">
-				<Original>
+				<English>
 					Select
-				</Original>
+				</English>
 				<German>
 					Auswählen
 				</German>
-				<English>
-					Select
-				</English>
 			</Key>
 			<Key ID="STR_GRAD_radio_UI_cancel">
-				<Original>
+				<English>
 					Cancel
-				</Original>
+				</English>
 				<German>
 					Abbrechen
 				</German>
-				<English>
-					Cancel
-				</English>
 			</Key>
-			<Key ID="STR_GRAD_radio_UI_up">
-				<Original>
+			<Key ID="STR_GRAD_radio_UI_up">,
+				<English>
 					Up
-				</Original>
+				</English>
 				<German>
 					Hoch
 				</German>
-				<English>
-					Up
-				</English>
 			</Key>
 			<Key ID="STR_GRAD_radio_UI_down">
-				<Original>
-					Select
-				</Original>
-				<German>
-					Gleiche langstrecken-Frequenzen für unterschiedlichen Fraktionen
-				</German>
 				<English>
-					Takie same częstotliwości LR dla strony
+					Down
 				</English>
+				<German>
+					Runter
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_cantSelect">
+				<English>
+					Cant do that :(
+				</English>
+				<German>
+					Cant do that :(
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_contacts">
+				<English>
+					Contacts
+				</English>
+				<German>
+					Kontakte
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_settings">
+				<English>
+					Settings
+				</English>
+				<German>
+					Einstellungen
+				</German>
 			</Key>
 		</Container>
 	</Package>

@@ -22,15 +22,30 @@ hint
 switch (_currentState) do {
 	case "default": {
 		switch (_action) do {
-			case "cancel": { ["default",3,"Cant select nothing :("] spawn GRAD_fnc_showHint;};
-			case "select": { ["default",3,"Cant select nothing :("] spawn GRAD_fnc_showHint;};
-			case "up": 	   { [true] spawn GRAD_fnc_showNextContact;};
-			case "down":   { [false] spawn GRAD_fnc_showNextContact;};
+			case "cancel": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
+			case "select": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
+			case "up": 	   { [true] spawn GRAD_fnc_showNextMenuEntry;};
+			case "down":   { [false] spawn GRAD_fnc_showNextMenuEntry;};
 
 			default {diag_log "GRAD_telephone default: button with no action given";};
 		};
 	};
-	case "scrolling": {
+
+	case "scrolling_mainmenu": {
+		switch (_action) do {
+			case "cancel": { [] call GRAD_fnc_gotoHomescreen; };
+			case "select": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
+			case "up": 	   { [true] spawn GRAD_fnc_showNextMenuEntry;};
+			case "down":   { [false] spawn GRAD_fnc_showNextMenuEntry;};
+
+			default {diag_log "GRAD_telephone default: button with no action given";};
+		};
+	};
+
+	// TODO fill with main menu ^^ //
+
+	
+	case "scrolling_contacts": {
 		switch (_action) do {
 			case "cancel": { [] call GRAD_fnc_gotoHomescreen;};
 			case "select": { 

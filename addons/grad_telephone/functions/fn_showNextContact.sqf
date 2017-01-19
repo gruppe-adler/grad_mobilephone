@@ -1,6 +1,6 @@
 params ["_up"];
 
-player setVariable ["GRAD_telephone_currentState", "scrolling", true];
+player setVariable ["GRAD_telephone_currentState", "scrolling_contacts", true];
 
 _selector = player getVariable ["GRAD_telephone_contacts_current",0];
 _list = player getVariable ["GRAD_telephone_contacts",[]];

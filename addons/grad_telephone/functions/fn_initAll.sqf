@@ -1,5 +1,6 @@
 // set global variables
 
+
 if (isNil "DEBUG_MODE") then { 
 	DEBUG_MODE = true; 
 };

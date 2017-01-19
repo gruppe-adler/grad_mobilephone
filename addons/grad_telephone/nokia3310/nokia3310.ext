@@ -127,7 +127,7 @@ class nokia3310_radio_dialog
 		y = 0.63 * safezoneH + safezoneY;
 		w = 0.0402187 * safezoneW;
 		h = 0.0517 * safezoneH;
-		tooltip = "Abbrechen";
+		tooltip = $STR_GRAD_radio_UI_cancel;
 		font = "tf_font_dots";
 		shadow = 2;
 		action = "['cancel'] call GRAD_fnc_buttonPressed;";
@@ -140,7 +140,7 @@ class nokia3310_radio_dialog
 		y = 0.585 * safezoneH + safezoneY;
 		w = 0.08 * safezoneW;
 		h = 0.055 * safezoneH;
-		tooltip = "Auswählen";
+		tooltip = $STR_GRAD_radio_UI_select;
 		font = "tf_font_dots";
 		shadow = 2;
 		action = "['select'] call GRAD_fnc_buttonPressed;";
@@ -153,7 +153,7 @@ class nokia3310_radio_dialog
 		y = 0.59 * safezoneH + safezoneY;
 		w = 0.06 * safezoneW;
 		h = 0.055 * safezoneH;
-		tooltip = "Hoch";
+		tooltip = $STR_GRAD_radio_UI_up;
 		font = "tf_font_dots";
 		shadow = 2;
 		action = "['up'] call GRAD_fnc_buttonPressed;";
@@ -166,7 +166,7 @@ class nokia3310_radio_dialog
 		y = 0.65 * safezoneH + safezoneY;
 		w = 0.06 * safezoneW;
 		h = 0.055 * safezoneH;
-		tooltip = "Runter";
+		tooltip = $STR_GRAD_radio_UI_down;
 		font = "tf_font_dots";
 		shadow = 2;
 		action = "['down'] call GRAD_fnc_buttonPressed;";

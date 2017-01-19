@@ -12,8 +12,8 @@ class CfgFunctions
 			class callDialing;
 			class callEnding;
 			class callIED;
-			class callReject;
 			class callReceiving;
+			class callReject;
 			class callWaiting;
 			class callWaitingDroppedPhone;
 
@@ -29,21 +29,21 @@ class CfgFunctions
 			class fillDummyContacts;
 
 			class generatePhoneNumber;
-			class getRadio;
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
+			class getRadio;
 			class getSelectedContactName;
 			class getSelectedContactObject;
 			class getSelectedContactRadioID;
 			class getUniquePhoneNumber;
 			class gotoHomescreen;
 
-			class interactGiveNumber;
-			class interactHasNumber;
-			class interactReceiveNumber;
 			class initAll{postInit = 1;};
 			class initClient;
 			class initServer;
+			class interactGiveNumber;
+			class interactHasNumber;
+			class interactReceiveNumber;
 			class isNotInContacts;
 			class isCellphone;
 			class isCellTowerReachable;

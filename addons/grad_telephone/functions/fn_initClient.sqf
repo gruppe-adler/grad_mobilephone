@@ -45,7 +45,6 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     		[] call GRAD_fnc_restoreDisplay;
             [player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
     	};
-
     }, _x] call TFAR_fnc_addEventHandler; 
 
 
@@ -53,11 +52,9 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     ['suppressRadioHint', 'OnTangent', { 
 
     	if ([player] call GRAD_fnc_isCellphone) then { 
-            
-		call TFAR_fnc_HideHint; // hijack original tfar hint, replace with our version
-    	[([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
-          
-
+    		call TFAR_fnc_HideHint; // hijack original tfar hint, replace with our version
+        	[([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
+        };
     }, _x] call TFAR_fnc_addEventHandler; 
 
 
@@ -75,8 +72,8 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     		}, player] call TFAR_fnc_addEventHandler;
     		[player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
     	};
-
     }, _x] call TFAR_fnc_addEventHandler;
+    
 } forEach playableUnits + switchableUnits;
 
 
@@ -117,6 +114,13 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     ["ACE_Explosives_Place_IEDLandBig",     0,  ["ACE_MainActions"],    _action,true] call ace_interact_menu_fnc_addActionToClass;
     ["ACE_Explosives_Place_IEDLandSmall",   0,  ["ACE_MainActions"],    _action,true] call ace_interact_menu_fnc_addActionToClass;
 
+}, []] call CBA_fnc_waitUntilAndExecute;
+
+[{!isNull player}, {
+    _condition = {([player] call GRAD_fnc_isCellphone)};
+    _statement = {hintSilent format ["%1",player getVariable ["GRAD_telephone_currentPhoneNumber","1337"]]; };
+    _action = ["showMyNumber","Show my Phone Number","grad_telephone\data\give.paa",_statement,_condition] call ace_interact_menu_fnc_createAction;
+    [(typeOf player), 1, ["ACE_SelfActions", "ACE_Equipment"], _action] call ace_interact_menu_fnc_addActionToClass;
 }, []] call CBA_fnc_waitUntilAndExecute;
 
 
