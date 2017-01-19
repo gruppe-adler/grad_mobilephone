@@ -27,6 +27,7 @@ class CfgFunctions
 			class destroyIED;
 
 			class fillDummyContacts;
+			class fillMainMenu;
 
 			class generatePhoneNumber;
 			class getNativePhoneCode;
@@ -63,6 +64,7 @@ class CfgFunctions
 			class showHint;
 			class showHintUnlimited;
 			class showNextContact;
+			class showNextMenuEntry;
 			class showRadioInfo;
 
 			class updateContactList;

@@ -10,6 +10,9 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
     TFAR_currentUnit = player;
 }];
 
+// fill main menu of phone
+[] call GRAD_fnc_fillMainMenu;
+
 
 {
     _x addEventHandler ["InventoryClosed", {

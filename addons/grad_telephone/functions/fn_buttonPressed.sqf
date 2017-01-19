@@ -34,7 +34,7 @@ switch (_currentState) do {
 	case "scrolling_mainmenu": {
 		switch (_action) do {
 			case "cancel": { [] call GRAD_fnc_gotoHomescreen; };
-			case "select": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
+			case "select": { [] };
 			case "up": 	   { [true] spawn GRAD_fnc_showNextMenuEntry;};
 			case "down":   { [false] spawn GRAD_fnc_showNextMenuEntry;};
 

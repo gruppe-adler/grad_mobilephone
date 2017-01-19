@@ -58,6 +58,46 @@
 					Einstellungen
 				</German>
 			</Key>
+			<Key ID="STR_GRAD_radio_UI_back">
+				<English>
+					Back
+				</English>
+				<German>
+					Zurück
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_call">
+				<English>
+					Call
+				</English>
+				<German>
+					Anrufen
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_ringtones">
+				<English>
+					Ringtones
+				</English>
+				<German>
+					Klingeltöne
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_volume">
+				<English>
+					Volume
+				</English>
+				<German>
+					Lautstärke
+				</German>
+			</Key>
+			<Key ID="STR_GRAD_radio_UI_volume">
+				<English>
+					Volume
+				</English>
+				<German>
+					Lautstärke
+				</German>
+			</Key>
 		</Container>
 	</Package>
 </Project>
