@@ -71,9 +71,9 @@ class nokia3310_radio_dialog
 		text = "";
 		idc = IDC_NOKIA3310STR_SPEAKERS;
 		x = 0.305 * safezoneW + safezoneX;
-		y = 0.19 * safezoneH + safezoneY;
+		y = 0.17 * safezoneH + safezoneY;
 		w = 0.06 * safezoneW;
-		h = 0.03 * safezoneH;
+		h = 0.09 * safezoneH;
 		tooltip = $STR_speakers_settings_true;
 		action = "[TF_sw_dialog_radio] call TFAR_fnc_setSwSpeakers; [TF_sw_dialog_radio] call TFAR_fnc_ShowRadioSpeakers;";
 	};
@@ -149,9 +149,9 @@ class nokia3310_radio_dialog
 	{
 		idc = IDC_NOKIA3310STR_SELECT_UP;
 		text = "";
-		x = 0.373 * safezoneW + safezoneX;
-		y = 0.59 * safezoneH + safezoneY;
-		w = 0.06 * safezoneW;
+		x = 0.378 * safezoneW + safezoneX;
+		y = 0.60 * safezoneH + safezoneY;
+		w = 0.05 * safezoneW;
 		h = 0.055 * safezoneH;
 		tooltip = $STR_GRAD_radio_UI_up;
 		font = "tf_font_dots";

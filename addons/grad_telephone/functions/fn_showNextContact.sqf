@@ -1,9 +1,16 @@
+private ["_phone"];
+
 params ["_up"];
 
-player setVariable ["GRAD_telephone_currentState", "scrolling_contacts", true];
+_phone = player getVariable ["GRAD_telephone_radioID", objNull];
 
-_selector = player getVariable ["GRAD_telephone_contacts_current",0];
-_list = player getVariable ["GRAD_telephone_contacts",[]];
+// save network bandwidth
+if (player getVariable ["GRAD_telephone_currentState"] != "scrolling_contacts") then {
+	player setVariable ["GRAD_telephone_currentState", "scrolling_contacts", true];
+};
+
+_selector = _phone getVariable ["GRAD_telephone_contacts_current",0];
+_list = _phone getVariable ["GRAD_telephone_contacts",[]];
 
 _count = count _list;
 
@@ -35,4 +42,4 @@ _nextEntryNumber = _list select _selector select 2;
 [_nextEntryName] call GRAD_fnc_setDisplayName;
 [_nextEntryNumber] call GRAD_fnc_setDisplayNumber;
 
-player setVariable ["GRAD_telephone_contacts_current",_selector];
+_phone setVariable ["GRAD_telephone_contacts_current",_selector, true];

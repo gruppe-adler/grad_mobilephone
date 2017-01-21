@@ -32,12 +32,16 @@ class CfgFunctions
 			class generatePhoneNumber;
 			class getNativePhoneCode;
 			class getNativePhoneFrequency;
+			class getPhoneContactList;
 			class getRadio;
 			class getSelectedContactName;
 			class getSelectedContactObject;
 			class getSelectedContactRadioID;
 			class getUniquePhoneNumber;
+			class gotoContacts;
 			class gotoHomescreen;
+			class gotoMenuMain;
+			class gotoSettings;
 
 			class initAll{postInit = 1;};
 			class initClient;
@@ -60,6 +64,7 @@ class CfgFunctions
 			class setNativePhoneFrequency;
 			class setDisplayName;
 			class setDisplayNumber;
+			class setPhoneContactList;
 
 			class showHint;
 			class showHintUnlimited;

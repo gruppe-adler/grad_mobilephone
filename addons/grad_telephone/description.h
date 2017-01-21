@@ -90,7 +90,7 @@ class HiddenButton
 			0, 0, 0, 0
 	};
 	colorBackground[] = {
-			0, 0, 0, 0
+			1, 0, 0, 0.7
 	};
 	colorBackgroundDisabled[] = {
 			0, 0, 0, 0

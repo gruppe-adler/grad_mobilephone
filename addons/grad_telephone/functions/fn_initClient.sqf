@@ -27,8 +27,10 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
           			["default",2,"Ended Call"] spawn GRAD_fnc_showHint;
           		};
 
+            _radioString = "GRAD_telephone_" + _x + "_contacts";
     		player setVariable ["GRAD_telephone_currentState", "default", true];
     		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
+            
 
     		["preventChannelSwitchEH", "OnSWchannelSet", objNull] call TFAR_fnc_removeEventHandler;
         } else {
@@ -56,25 +58,31 @@ _teamSwitchEnabler = addMissionEventHandler ["onTeamSwitch",{
 
     	if ([player] call GRAD_fnc_isCellphone) then { 
     		call TFAR_fnc_HideHint; // hijack original tfar hint, replace with our version
-        	[([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
+            if (_this select 4) then {
+        	   [([player] call GRAD_fnc_getRadio), -1] call GRAD_fnc_showRadioInfo;
+            } else {
+               [([player] call GRAD_fnc_getRadio), 3] call GRAD_fnc_showRadioInfo;
+            };
         };
     }, _x] call TFAR_fnc_addEventHandler; 
 
 
     // setup phone radio when received (mono ear, homescreen)
     ["addRadioSpecifications", "OnRadiosReceived", {
+        {
+        	if ([player] call GRAD_fnc_isCellphone) then {
+        		player setVariable ["GRAD_telephone_currentState", "default", true];
+                player setVariable ["GRAD_telephone_radioID", _x, true];
 
-    	if ([player] call GRAD_fnc_isCellphone) then {
-    		player setVariable ["GRAD_telephone_currentState", "default", true];
-
-    		[(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwStereo;
-    		[player] call GRAD_fnc_setNativePhoneFrequency;
-    		// prevent channel switching (always 1)
-    		["preventChannelSwitchEH", "OnSWchannelSet", {
-    		    [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel;
-    		}, player] call TFAR_fnc_addEventHandler;
-    		[player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
-    	};
+        		[(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwStereo;
+        		[player] call GRAD_fnc_setNativePhoneFrequency;
+        		// prevent channel switching (always 1)
+        		["preventChannelSwitchEH", "OnSWchannelSet", {
+        		    [(call TFAR_fnc_activeSwRadio), 1] call TFAR_fnc_setSwChannel;
+        		}, player] call TFAR_fnc_addEventHandler;
+        		[player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_fnc_getUniquePhoneNumber", 2, false];
+        	};
+        } forEach (_this select 1);
     }, _x] call TFAR_fnc_addEventHandler;
     
 } forEach playableUnits + switchableUnits;

@@ -22,8 +22,8 @@ hint
 switch (_currentState) do {
 	case "default": {
 		switch (_action) do {
-			case "cancel": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
-			case "select": { ["default",3,localize "$STR_GRAD_radio_UI_cantSelect"] spawn GRAD_fnc_showHint;};
+			case "cancel": { };
+			case "select": { };
 			case "up": 	   { [true] spawn GRAD_fnc_showNextMenuEntry;};
 			case "down":   { [false] spawn GRAD_fnc_showNextMenuEntry;};
 
@@ -31,10 +31,16 @@ switch (_currentState) do {
 		};
 	};
 
-	case "scrolling_mainmenu": {
+	case "scrolling_menu_main": {
 		switch (_action) do {
 			case "cancel": { [] call GRAD_fnc_gotoHomescreen; };
-			case "select": { [] };
+			case "select": { 
+				switch (player getVariable  ["GRAD_telephone_menu_main_current",0]) do {
+					case 0: { [] call GRAD_fnc_gotoContacts;};
+					case 1: { [] call GRAD_fnc_gotoSettings;};
+					default {};
+				};
+			};
 			case "up": 	   { [true] spawn GRAD_fnc_showNextMenuEntry;};
 			case "down":   { [false] spawn GRAD_fnc_showNextMenuEntry;};
 
@@ -47,7 +53,7 @@ switch (_currentState) do {
 	
 	case "scrolling_contacts": {
 		switch (_action) do {
-			case "cancel": { [] call GRAD_fnc_gotoHomescreen;};
+			case "cancel": { [] call GRAD_fnc_gotoMenuMain;};
 			case "select": { 
 				["Calling..."] spawn GRAD_fnc_showHintUnlimited;
 

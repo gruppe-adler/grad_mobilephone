@@ -22,12 +22,14 @@ private ["_hintText", "_radio", "_name", "_realname", "_classname", "_splitThisS
 _radio = _this select 0;
 _timeout = _this select 1;
 
+
+_radioDisplayName = getText(configFile >> "CfgWeapons" >> _radio >> "displayName");
 _splitThisShit = ([_radio, "_"] call CBA_fnc_split);
 
 _realname = (_splitThisShit select 0) + (_splitThisShit select 1);
 
 
-_picture =getText(configFile >> "CfgWeapons" >> _radio >> "picture");
+_picture = getText(configFile >> "CfgWeapons" >> _radio >> "picture");
 
 _currentState = player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing";
 

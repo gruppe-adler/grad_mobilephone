@@ -29,8 +29,47 @@ class CfgFactionClasses
 
 class CfgFontFamilies
 {
-  class tf_font_dots;
+    class tf_font_dots;
+    class GRAD_font_nokiaCellPhoneFC
+    {
+      fonts[] = {
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC6",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC7",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC8",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC9",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC10",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC11",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC12",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC13",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC14",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC15",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC16",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC17",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC18",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC19",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC20",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC21",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC22",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC23",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC24",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC25",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC26",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC27",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC28",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC29",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC30",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC31",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC34",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC35",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC36",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC37",
+        "\grad_telephone_items\nokia3310\fonts\NokiaCellphoneFC6\NokiaCellphoneFC46"
+      };
+      spaceWidth = 0.6;
+      spacing = 0.15;
+  };
 };
+
 
 class CfgVehicles {
   class Item_Base_F;
