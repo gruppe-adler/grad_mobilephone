@@ -26,11 +26,11 @@ sleep 4 - (random 2);
 scopeName "_main";
 
 {
-	_unitRadio = [_x] call GRAD_fnc_getRadio;
+	_unitRadio = [_x] call GRAD_telephone_fnc_getRadio;
 	if (_unitRadio != "none") then {
 		diag_log format ["callDialing: checking if persons radioID %1 is calledID %2", _radioID, _unitRadio];
 		if (_radioID == _unitRadio) exitWith {
-			[_x] call GRAD_fnc_callWaiting;
+			[_x] call GRAD_telephone_fnc_callWaiting;
 			_foundRadioInUnits = true;
 			breakTo "_main";
 		};
@@ -54,7 +54,7 @@ if (!_foundRadioInUnits) then {
 	{
 		diag_log format ["callDialing: checking %2 for %1 on the ground", _radioItemID, (itemCargo _x)];
 		if ((itemCargo _x) find _radioItemID >= 0 ) exitWith {
-			[_x] call GRAD_fnc_callWaitingDroppedPhone;
+			[_x] call GRAD_telephone_fnc_callWaitingDroppedPhone;
 			diag_log format ["callDialing: found radioID %1 on the ground", _radioItemID];
 			_onGround = true;
 		};
@@ -66,7 +66,7 @@ if (!_foundRadioInUnits) then {
 		{
 			diag_log format ["callDialing: checking %2 for %1 in vehicle", _radioID, (itemCargo _x)];
 			if ((itemCargo _x) find _radioID >= 0) exitWith {
-				[_x] call GRAD_fnc_callWaitingDroppedPhone;
+				[_x] call GRAD_telephone_fnc_callWaitingDroppedPhone;
 				diag_log format ["callDialing: found radioID %1 in vehicle", _radioID];
 				_inVehicle = true;
 			};
@@ -74,4 +74,4 @@ if (!_foundRadioInUnits) then {
 	};
 };
 
-[call TFAR_fnc_activeSwRadio, -1] call GRAD_fnc_showRadioInfo;
+[call TFAR_fnc_activeSwRadio, -1] call GRAD_telephone_fnc_showRadioInfo;

@@ -14,12 +14,12 @@ if ([PHONENUMBERS_HASH, _radioID] call CBA_fnc_hashHasKey) then {
 	_caller setVariable ["GRAD_telephone_currentPhoneNumber", _associatedNumber, true];
 } else {
 	
-	_associatedNumber = [PHONENUMBERS_ARRAY, _radioID] call GRAD_fnc_generatePhoneNumber;
+	_associatedNumber = [PHONENUMBERS_ARRAY, _radioID] call GRAD_telephone_fnc_generatePhoneNumber;
 	
 	[PHONENUMBERS_HASH, _radioID, _associatedNumber] call CBA_fnc_hashSet;
 	PHONENUMBERS_ARRAY = PHONENUMBERS_ARRAY + [_associatedNumber];
 
-	if (DEBUG_MODE) then { diag_log format ["number generated is %1", _associatedNumber]};
+	if (GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["number generated is %1", _associatedNumber]};
 	_caller setVariable ["GRAD_telephone_currentPhoneNumber", _associatedNumber, true];
 };
 

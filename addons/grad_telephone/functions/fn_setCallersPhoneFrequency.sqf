@@ -1,4 +1,9 @@
-/* called on receivers client after accepting */
+/* 
+	called on receivers client after accepting 
+
+	sets receivers client to frequency of calling client
+*/
+
 
 params ["_freq", "_code"];
 

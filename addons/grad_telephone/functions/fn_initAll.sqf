@@ -1,29 +1,29 @@
 // set global variables
 
 
-if (isNil "DEBUG_MODE") then { 
-	DEBUG_MODE = true; 
+if (isNil "GRAD_TELEPHONE_DEBUG_MODE") then { 
+	GRAD_TELEPHONE_DEBUG_MODE = true; 
 };
 
-if (isNil "CELLTOWER_MODE") then { 
-	CELLTOWER_MODE = true; 
+if (isNil "GRAD_TELEPHONE_CELLTOWER_MODE") then { 
+	GRAD_TELEPHONE_CELLTOWER_MODE = true; 
 };
 
-if (isNil "AUTO_SPAWN_CELLTOWERS_AT_SETTLEMENTS") then { 
-	AUTO_SPAWN_CELLTOWERS_AT_SETTLEMENTS = true; 
+if (isNil "GRAD_TELEPHONE_AUTO_SPAWN_CELLTOWERS") then { 
+	GRAD_TELEPHONE_AUTO_SPAWN_CELLTOWERS = true; 
 };
 
-if (isNil "MAX_CELLTOWER_RANGE") then { 
-	MAX_CELLTOWER_RANGE = 5000; 
+if (isNil "GRAD_TELEPHONE_MAX_CELLTOWER_RANGE") then { 
+	GRAD_TELEPHONE_MAX_CELLTOWER_RANGE = 5000; 
 };
 
 
 // go to init stuff
 
 if (isServer or isDedicated) then {
-	[] spawn GRAD_fnc_initServer;
+	[] spawn GRAD_telephone_fnc_initServer;
 };
 
 if (hasInterface) then {
-	[] spawn GRAD_fnc_initClient;
+	[] spawn GRAD_telephone_fnc_initClient;
 };

@@ -15,7 +15,7 @@ _busyBeeps = ["GRAD_telephone_phoneRingBusy1", "GRAD_telephone_phoneRingBusy2", 
 
 _wasAlreadyRinging = false;
 
-[player, _receiverObject] call GRAD_fnc_pleaseReceive;
+[player, _receiverObject] call GRAD_telephone_fnc_pleaseReceive;
 
 if (_receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"] == "receiving") then {
 		// ringing signal
@@ -70,4 +70,4 @@ while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"
 };
 
 
-// if (DEBUG_MODE) then { diag_log format ["callWaiting: target changed status to %1", _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"]];};
+// if (GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["callWaiting: target changed status to %1", _receiverObject getVariable ["GRAD_telephone_currentState", "noPhone"]];};

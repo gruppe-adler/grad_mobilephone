@@ -5,19 +5,19 @@ params ["_caller", "_called"];
 _multiplicator = 2;
 
 // needed to calculate TFAR multiplicator with
-_distance = [_caller, _called] call GRAD_fnc_cellTowerGetAttendeesDistance;
+_distance = [_caller, _called] call GRAD_telephone_fnc_cellTowerGetAttendeesDistance;
 
 _strengthCaller = _caller getVariable ["GRAD_telephone_currentSignalStrength",0];
 _strengthCalled = _called getVariable ["GRAD_telephone_currentSignalStrength",0];
 
-if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _strengthCaller = %1, _strengthCalled = %2", _strengthCaller, _strengthCalled]; };
+if (GRAD_TELEPHONE_GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["calcTFARmulti: _strengthCaller = %1, _strengthCalled = %2", _strengthCaller, _strengthCalled]; };
 
 // 100k is hardwired phone range
 _maxDistanceMultiplicator = _distance/100000;
 
 _overallStrength = floor (_strengthCalled + _strengthCaller)/2;
 
-if (DEBUG_MODE) then { diag_log format ["calcTFARmulti: _distance is %2, _overAllStrength = %1", _overallStrength, _distance]; };
+if (GRAD_TELEPHONE_GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["calcTFARmulti: _distance is %2, _overAllStrength = %1", _overallStrength, _distance]; };
 
 switch (_overallStrength) do {
 	case 0: { 

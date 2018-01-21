@@ -175,6 +175,5 @@ class HiddenFlip:HiddenButton{
 	};
 };
 
-
-
-#include "\GRAD_telephone\nokia3310\nokia3310.ext"
+// probably deprecated
+/* #include "\GRAD_telephone\nokia3310\nokia3310.ext" */

@@ -8,16 +8,16 @@ sleep ((random 3) + 2);
 
 // check if IED && player is in reach of celltower, exit if not
 
-if ([_ied] call GRAD_fnc_isCellTowerReachable && [_player] call GRAD_fnc_isCellTowerReachable) then {
-	if (player distance2D _nearestMarkerPlayer > MAX_CELLTOWER_RANGE) exitWith {
+if ([_ied] call GRAD_telephone_fnc_isCellTowerReachable && [_player] call GRAD_telephone_fnc_isCellTowerReachable) then {
+	if (player distance2D _nearestMarkerPlayer > GRAD_TELEPHONE_MAX_CELLTOWER_RANGE) exitWith {
 		player setVariable ["GRAD_telephone_currentState", "default", true];
 		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
-		["Kein Netz"] spawn GRAD_fnc_showHintUnlimited;
+		["Kein Netz"] spawn GRAD_telephone_fnc_showHintUnlimited;
 	};
-	if (_ied distance2D _nearestMarkerIED > MAX_CELLTOWER_RANGE) exitWith {
+	if (_ied distance2D _nearestMarkerIED > GRAD_TELEPHONE_MAX_CELLTOWER_RANGE) exitWith {
 		player setVariable ["GRAD_telephone_currentState", "default", true];
 		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
-		["Teilnehmer nicht erreichbar"] spawn GRAD_fnc_showHintUnlimited;
+		["Teilnehmer nicht erreichbar"] spawn GRAD_telephone_fnc_showHintUnlimited;
 	};
 };
 
@@ -51,7 +51,7 @@ while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"
 			[_ied, ["GRAD_telephone_phoneRingOriginal", 50]] remoteExec ["say3D",0,false];
 			sleep 0.55;
 			
-			[_ied] call GRAD_fnc_destroyIED;
+			[_ied] call GRAD_telephone_fnc_destroyIED;
 
 			while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
 				playSound (selectRandom _busyBeeps); 

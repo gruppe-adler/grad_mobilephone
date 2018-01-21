@@ -1,6 +1,6 @@
 params ["_unit"];
 
-_freqStr = [_unit] call GRAD_fnc_getNativePhoneFrequency;
+_freqStr = [_unit] call GRAD_telephone_fnc_getNativePhoneFrequency;
 
 [(call TFAR_fnc_activeSwRadio), _freqStr] call TFAR_fnc_setSwFrequency;
 

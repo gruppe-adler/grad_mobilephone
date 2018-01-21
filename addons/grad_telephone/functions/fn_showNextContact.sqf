@@ -15,7 +15,7 @@ _list = _phone getVariable ["GRAD_telephone_contacts",[]];
 _count = count _list;
 
 if (_count < 1) exitWith {
-	["default",3,"No Contacts :("] spawn GRAD_fnc_showHint;
+	["default",3,"No Contacts :("] spawn GRAD_telephone_fnc_showHint;
 };
 
 if (_up) then {
@@ -39,7 +39,7 @@ diag_log format ["number %1", _list select _selector select 2];
 _nextEntryName = _list select _selector select 1;
 _nextEntryNumber = _list select _selector select 2;
 
-[_nextEntryName] call GRAD_fnc_setDisplayName;
-[_nextEntryNumber] call GRAD_fnc_setDisplayNumber;
+[_nextEntryName] call GRAD_telephone_fnc_setDisplayName;
+[_nextEntryNumber] call GRAD_telephone_fnc_setDisplayNumber;
 
 _phone setVariable ["GRAD_telephone_contacts_current",_selector, true];

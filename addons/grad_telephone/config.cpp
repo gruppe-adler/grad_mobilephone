@@ -15,11 +15,11 @@ class CfgPatches
 	};
 };
 
-#include "\grad_telephone\CfgFunctions.h"
+#include "CfgFunctions.h"
 class grad_telephone_settings {
 };
-#include "\grad_telephone\description.h"
-#include "\grad_telephone\RscTitles.hpp"
+#include "description.h"
+#include "RscTitles.hpp"
 
 
 

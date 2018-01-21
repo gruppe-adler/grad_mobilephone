@@ -73,7 +73,7 @@ while {true} do {
 
 _endResult = "";
 
-if (DEBUG_MODE) then { diag_log format ["generatePhoneNumber: %1", _result]; };
+if (GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["generatePhoneNumber: %1", _result]; };
 
 {
   _endResult = _endResult + str _x;

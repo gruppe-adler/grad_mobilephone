@@ -16,7 +16,7 @@
 	Nothing
  	
  	Example:
-	[call TFAR_fnc_activeSwRadio] call GRAD_fnc_ShowRadioInfo;
+	[call TFAR_fnc_activeSwRadio] call GRAD_telephone_fnc_ShowRadioInfo;
 */
 private ["_hintText", "_radio", "_name", "_realname", "_classname", "_splitThisShit", "_timeout", "_picture", "_status", "_isDialing", "_isWaiting", "_isCalling", "_imagesize"];
 _radio = _this select 0;

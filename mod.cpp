@@ -1,6 +1,6 @@
 name = "GRAD Telephone";
 actionName = "Website";
-action = "http://www.gruppe-adler.de";
+action = "https://www.gruppe-adler.de";
 description = "Task Force Arma 3 Radio Custom Addition by Gruppe Adler";
 tooltip = "GRAD Telephone";
 tooltipOwned = "GRAD Telephone";

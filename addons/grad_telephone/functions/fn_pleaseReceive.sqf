@@ -23,7 +23,7 @@ _result = false;
 if (_canReceive find _state >= 0) then {
 	_result = true;
 	_receiverObject setVariable ["GRAD_telephone_currentState", "receiving", true];
-	[_senderObject, _receiverObject] remoteExec ["GRAD_fnc_callReceiving", _receiverObject, false];
+	[_senderObject, _receiverObject] remoteExec ["GRAD_telephone_fnc_callReceiving", _receiverObject, false];
 };
 
 _result
