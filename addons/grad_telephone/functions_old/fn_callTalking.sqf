@@ -1,0 +1,1 @@
+player setVariable ["GRAD_telephone_currentState", "talking", true];
