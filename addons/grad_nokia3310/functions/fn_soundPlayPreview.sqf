@@ -1,5 +1,7 @@
 params ["_sound"];
 
+if (player getVariable ["GRAD_telephone_listenSoundPreview",false]) exitWith {};
+
 private _dummy = [player, _sound] call GRAD_nokia3310_fnc_soundCreateDummy;
 
 [{

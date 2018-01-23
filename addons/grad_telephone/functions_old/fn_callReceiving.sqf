@@ -10,8 +10,8 @@ _receiver setVariable ["GRAD_telephone_currentState","receiving",true];
 
 // checking for player, because in SP our own display would be overwritten
 if (isPlayer _receiver) then {
-	[str _caller] call GRAD_fnc_setDisplayName;
-	["incoming call..."] call GRAD_fnc_setDisplayNumber;
+	// [str _caller] call GRAD_fnc_setDisplayName;
+	// ["incoming call..."] call GRAD_fnc_setDisplayNumber;
 };
 
 

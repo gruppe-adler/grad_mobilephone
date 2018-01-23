@@ -17,7 +17,7 @@ if (_up) then {
 _nextEntryName = _list select _selector;
 _nextEntryNumber = _list select _selector;
 
-[_nextEntryName] call GRAD_telephone_fnc_setDisplayName;
-[_nextEntryNumber] call GRAD_telephone_fnc_setDisplayNumber;
+// [_nextEntryName] call GRAD_telephone_fnc_setDisplayName;
+// [_nextEntryNumber] call GRAD_telephone_fnc_setDisplayNumber;
 
 player setVariable ["GRAD_telephone_menu_main_current",_selector];

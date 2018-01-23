@@ -1,24 +1,7 @@
 #include "..\macros_idc.hpp"
-params ["_button","_display"];
+#include "..\tones.hpp"
 
-private _tones = [  ["Attraction", "nokia_attraction"],
-                    ["Badinerie", "nokia_badinerie"],
-                    ["City Bird", "nokia_citybird"],
-                    ["Frog", "nokia_frog"],
-                    ["Hurdy Gurdy", "nokia_hurdygurdy"],
-                    ["Jumping", "nokia_jumping"],
-                    ["Kick", "nokia_kick"],
-                    ["Knick Knack", "nokia_knickknack"],
-                    ["Lamb", "nokia_lamb"],
-                    ["Low", "nokia_low"],
-                    ["Merry XMas", "nokia_merryxmas"],
-                    ["Ring Ring", "nokia_ringring"],
-                    ["Rocket", "nokia_rocket"],
-                    ["That's It!", "nokia_thatsit"],
-                    ["The Buffoon", "nokia_thebuffoon"],
-                    ["Tick Tick", "nokia_ticktick"],
-                    ["Toreador", "nokia_toreador"]
-];
+params ["_button","_display"];
 
 private _curIndex = (([_display] call GRAD_Nokia3310_fnc_history) select 1) - 1;
 
@@ -43,7 +26,7 @@ switch (tolower _button) do {
                if ((_x select 0) isEqualTo (ctrlText (_display displayCtrl IDC_TONES_VALUE))) then {
                     (_display displayCtrl IDC_TONES_LIST) lbSetCurSel _i;
                };
-          } forEach _tones;
+          } forEach GRAD_NOKIA3310_TONES;
 
           //update history and entertext
           (_display displayCtrl IDC_HISTORY) ctrlSetText format ["3-%1-%2",_curIndex + 1, (lbCurSel (_display displayCtrl IDC_TONES_LIST)) + 1];

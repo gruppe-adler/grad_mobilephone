@@ -6,6 +6,7 @@ class contacts: GRAD_Nokia3310_RscListBox
      w = SCREEN_W * 0.94;
      h = SCREEN_H;
      sizeEx = SCREEN_H / 4;
+     font = "GRAD_font_nokiaCellPhoneFC";
 };
 class settings: contacts
 {
@@ -19,7 +20,8 @@ class view_name: GRAD_Nokia3310_RscText
      w = SCREEN_W - 0.05 * NOKIA_W;
      h = SCREEN_H;
      style = 16;
-     sizeEx = 0.03798 * NOKIA_H;
+     sizeEx = SCREEN_H/4;
+     font = "GRAD_font_nokiaCellPhoneFC";
 };
 class view_number: view_name
 {
@@ -27,6 +29,6 @@ class view_number: view_name
      x = 0;
      y = 0.04697 * NOKIA_H;
      h = 0.09605 * NOKIA_H;
-     font = "RobotoCondensedLight";
+     font = "GRAD_font_nokiaCellPhoneFC";
      style = 1;
 };

@@ -7,6 +7,8 @@ private _history = [_display] call GRAD_Nokia3310_fnc_history;
 
 switch (tolower _button) do {
      case "cancel": {
+          if (player getVariable ["GRAD_telephone_displayBusy",false]) exitWith {};
+
           _lb ctrlShow false;
           (_display displayCtrl IDC_TONES_SETTING) ctrlShow true;
           (_display displayCtrl IDC_TONES_VALUE) ctrlShow true;
@@ -15,10 +17,11 @@ switch (tolower _button) do {
           (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "Select";
 
           player setVariable ["GRAD_telephone_listenSoundPreview",false];
-          playSound "ui_softClick";
      };
      case "up";
      case "down": {
+          player setVariable ["GRAD_telephone_listenSoundPreview",false];
+
           private _nextIndex = if (tolower _button isEqualTo "down") then {(lbCurSel _lb) + 1} else {(lbCurSel _lb) - 1};
           if (_nextIndex isEqualTo (lbSize _lb)) then {_nextIndex = 0;};
           if (_nextIndex isEqualTo -1) then {_nextIndex = (lbSize _lb) -1;};
@@ -26,9 +29,15 @@ switch (tolower _button) do {
           _lb lbsetCurSel _nextIndex;
 
           (_display displayCtrl IDC_HISTORY) ctrlSetText format ["3-%1-%2",(_history select 1), _nextIndex + 1];
+          
+          [{
+               _this call GRAD_Nokia3310_fnc_soundPlayPreview;
+          }, (_lb lbData _nextIndex), 0.5] call CBA_fnc_waitAndExecute;
      };
      case "select": {
-          player setVariable ["GRAD_telephone_listenSoundPreview",false];
-          [_lb lbData (lbCurSel _lb)] call GRAD_Nokia3310_fnc_soundPlayPreview;
+          [_display, (_lb lbData (lbCurSel _lb)), [
+               _display displayCtrl IDC_TONES_LIST,
+               _display displayCtrl IDC_HISTORY
+          ]] spawn GRAD_Nokia3310_fnc_confirmAction;
      };
 };

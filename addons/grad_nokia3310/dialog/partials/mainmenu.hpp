@@ -6,7 +6,8 @@ class text: GRAD_Nokia3310_RscText
      w = SCREEN_W;
      h = 0.05697 * NOKIA_H;
      style = 2;
-     sizeEx = 0.05697 * NOKIA_H;
+     sizeEx = SCREEN_H / 4;
+     font = "GRAD_font_nokiaCellPhoneFC";
 };
 class picture: GRAD_Nokia3310_RscPictureKeepAspect
 {

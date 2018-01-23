@@ -57,7 +57,6 @@ class GRAD_Nokia3310_dialog
 		class phonebook: tones
 		{
 			idc = IDC_CTRLGROUP_PHONEBOOK;
-			font = "tf_font_dots";
 			class controls
 			{
 				#include "partials\phonebook.hpp"
@@ -81,6 +80,7 @@ class GRAD_Nokia3310_dialog
 			style = 1;
 			text = "";
 			sizeEx = 0.03798 * NOKIA_H;
+			font = "GRAD_font_nokiaCellPhoneFC";
 		};
 		class enterText: history
 		{
@@ -88,6 +88,15 @@ class GRAD_Nokia3310_dialog
 			y = 0.444 * NOKIA_H + safezoneY;
 			style = 2;
 			text = "";
+			font = "GRAD_font_nokiaCellPhoneFC";
+		};
+		class confirm: tones
+		{
+			idc = IDC_CTRLGROUP_CONFIRM;
+			class controls
+			{
+				#include "partials\confirm.hpp"
+			};
 		};
 		#include "partials\keys.hpp"
 	};

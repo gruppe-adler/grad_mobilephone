@@ -39,7 +39,7 @@ diag_log format ["number %1", _list select _selector select 2];
 _nextEntryName = _list select _selector select 1;
 _nextEntryNumber = _list select _selector select 2;
 
-[_nextEntryName] call GRAD_fnc_setDisplayName;
-[_nextEntryNumber] call GRAD_fnc_setDisplayNumber;
+// [_nextEntryName] call GRAD_fnc_setDisplayName;
+// [_nextEntryNumber] call GRAD_fnc_setDisplayNumber;
 
 _phone setVariable ["GRAD_telephone_contacts_current",_selector, true];

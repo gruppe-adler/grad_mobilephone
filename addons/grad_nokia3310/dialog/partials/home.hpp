@@ -15,6 +15,7 @@ class clock: GRAD_Nokia3310_RscText
 {
      idc = IDC_HOME_CLOCK;
      text = "00:00";
+     font = "GRAD_font_nokiaCellPhoneFC";
      x = 0;
      y = 0.005 * NOKIA_H;
      w = SCREEN_W - 0.06 * NOKIA_W;
