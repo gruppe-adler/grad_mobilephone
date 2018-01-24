@@ -9,8 +9,8 @@ if (player getVariable ["GRAD_telephone_currentState"] != "scrolling_contacts") 
 	player setVariable ["GRAD_telephone_currentState", "scrolling_contacts", true];
 };
 
-_selector = _phone getVariable ["GRAD_telephone_contacts_current",0];
-_list = _phone getVariable ["GRAD_telephone_contacts",[]];
+_selector = _phone getVariable ["GRAD_telephone_phonebook_current",0];
+_list = _phone getVariable ["GRAD_telephone_phonebook",[]];
 
 _count = count _list;
 
@@ -42,4 +42,4 @@ _nextEntryNumber = _list select _selector select 2;
 // [_nextEntryName] call GRAD_fnc_setDisplayName;
 // [_nextEntryNumber] call GRAD_fnc_setDisplayNumber;
 
-_phone setVariable ["GRAD_telephone_contacts_current",_selector, true];
+_phone setVariable ["GRAD_telephone_phonebook_current",_selector, true];

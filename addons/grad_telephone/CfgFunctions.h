@@ -72,22 +72,22 @@ class CfgFunctions
 		class ui {
 			file = "\grad_telephone\functions\ui";
 
-			class getPhoneContactList;
+			class getPhonePhonebook;
 			class getSelectedContactName;
 			class getSelectedContactObject;
 			class getSelectedContactRadioID;
 			class isNotInContacts;
+			class modifyPhonebook;
 			class restoreDisplay;
 			class setDisplayName;
 			class setDisplayNumber;
-			class setPhoneContactList;
+			class setPhonePhonebook;
 			class showHint;
 			class showHintCall;
 			class showHintUnlimited;
 			class showNextContact;
 			class showNextMenuEntry;
 			class showRadioInfo;
-			class updateContactList;
 
 		}
 

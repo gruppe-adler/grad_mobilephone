@@ -1,4 +1,4 @@
-private ["_result", "_selector", "_contactList"];
+private ["_result", "_selector", "_phonebook"];
 
 params ["_ied"];
 
@@ -6,8 +6,8 @@ _phone = player getVariable ["GRAD_telephone_radioID", objNull];
 
 _result = true;
 
-_contactList = _phone getVariable ["GRAD_telephone_contacts", []];
-_selector = [_contactList, _ied] call BIS_fnc_findNestedElement;
+_phonebook = _phone getVariable ["GRAD_telephone_phonebook", []];
+_selector = [_phonebook, _ied] call BIS_fnc_findNestedElement;
 
 if (count _selector > 0) then {
 	_result = false;
