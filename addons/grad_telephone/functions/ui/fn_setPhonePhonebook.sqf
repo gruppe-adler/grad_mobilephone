@@ -1,5 +1,5 @@
-params ["_phoneClassname", "_value"];
+params ["_phoneID", "_phonebookArray"];
 
-_string = "GRAD_telephone_" + _phoneClassname + "_phonebook";
+private _publicPhoneBookForID = "GRAD_telephone_phonebook_" + _phoneID;
 
-missionNamespace setVariable [_string, _value];
+missionNamespace setVariable [_publicPhoneBookForID, _phonebookArray, true];

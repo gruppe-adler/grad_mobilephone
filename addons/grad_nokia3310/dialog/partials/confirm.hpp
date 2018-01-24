@@ -1,8 +1,8 @@
 class confirm_text: GRAD_Nokia3310_RscText
 {
      idc = IDC_ACTION_CONFIRM_TEXT;
-     x = 0;
-     y = 0;
+     x = 0.1 * SCREEN_W;
+     y = 0.1 * SCREEN_H;
      w = SCREEN_W;
      h = 0.05697 * NOKIA_H;
      style = 2;

@@ -86,24 +86,15 @@ switch (toLower _newPage) do {
           (_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER) ctrlShow false;
 
           //fill contacts
-          private _contacts = [
-               ["nomisum","000000000000"],
-               ["X to the iviD","111111111111"],
-               ["Z to the arrck","222222222222"],
-               ["Dukes Keller","333333333333"],
-               ["Slant","444444444444"],
-               ["McDiod","555555555555"],
-               ["Salbei","666666666666"],
-               ["Fridelcastro (aka McDiod 2.0)","777777777777"],
-               ["Simmax","888888888888"],
-               ["Fussel","999999999999"]
-          ];
+          private _contacts = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
           
           lbClear (_display displayCtrl IDC_PHONEBOOK_CONTACTS);
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd "<New contact>";
+
+          // phonebook structure: _radioID, _name, _number, _isIED, _object
           {
-               private _i = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd (_x select 0);
-               (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbSetData [_i,(_x select 1)];
+               private _i = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd (_x select 1);
+               (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbSetData [_i,(_x select 2)];
           } forEach _contacts;
 
           //fill settings

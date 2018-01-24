@@ -22,6 +22,9 @@ private _enterTextCache = ctrlText (_display displayCtrl IDC_ENTERTEXT);
 (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "";
 
 (_display displayCtrl IDC_CTRLGROUP_CONFIRM) ctrlShow true;
+(_display displayCtrl IDC_ACTION_CONFIRM2) ctrlShow false;
+(_display displayCtrl IDC_ACTION_CONFIRM3) ctrlShow false;
+
 (_display displayCtrl IDC_ACTION_CONFIRM1) ctrlShow true;
 (_display displayCtrl IDC_ACTION_CONFIRM_TEXT) ctrlShow true;
 uiSleep 1;

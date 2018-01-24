@@ -72,6 +72,7 @@ class CfgFunctions
 		class ui {
 			file = "\grad_telephone\functions\ui";
 
+			class addDummyData;
 			class getPhonePhonebook;
 			class getSelectedContactName;
 			class getSelectedContactObject;

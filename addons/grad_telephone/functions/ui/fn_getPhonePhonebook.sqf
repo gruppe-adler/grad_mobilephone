@@ -1,9 +1,5 @@
-private ["_return"];
+params ["_phoneID"];
 
-params ["_phoneClassname"];
+private _publicPhoneBookForID = "GRAD_telephone_phonebook_" + _phoneID;
 
-_string = "GRAD_telephone_" + _phoneClassname + "_phonebook";
-
-_return = missionNamespace getVariable [_string, []];
-
-_return
+missionNamespace getVariable [_publicPhoneBookForID, []]
