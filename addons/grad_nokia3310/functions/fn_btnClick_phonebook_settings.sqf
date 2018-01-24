@@ -34,7 +34,8 @@ switch (tolower _button) do {
           private _phoneBook = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
           private _currentEntry = _phoneBook select _contactIndex;
 
-          _currentEntry params ["_targetRadioID", "_targetName", "_number", "_isIED", "_targetObject"];
+          // ["1", "XiviD", "0160 7945321", false, objNull]
+          _currentEntry params ["_targetRadioID", "_targetName", "_phoneNumber", "_isIED", "_targetObject"];
 
           switch (lbCurSel _lb) do {
                case 0: {
@@ -67,7 +68,8 @@ switch (tolower _button) do {
                          (_display displayCtrl IDC_ENTERTEXT)
                     ]] spawn GRAD_Nokia3310_fnc_confirmAction;
 
-                    [player, "remove", _targetRadioID, player, _number, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
+                    [player, (lbCurSel _lb), "remove", _targetRadioID, player, _phoneNumber, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
+                    // [_display] call GRAD_Nokia3310_fnc_refreshPhonebook;
 
                };
           };

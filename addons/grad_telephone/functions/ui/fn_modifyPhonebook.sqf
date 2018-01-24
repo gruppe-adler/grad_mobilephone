@@ -6,7 +6,8 @@
 
 private ["_phonebook", "_name", "_object", "_phoneID", "_phone"];
 
-params ["_unit", "_mode", "_radioID", "_caller", "_number", "_isIED"];
+// player, (lbCurSel _lb), "remove", _targetRadioID, player, _phoneNumber, _isIED
+params ["_unit", "_index", "_mode", "_radioID", "_caller", "_number", "_isIED"];
 
 _phoneID = [_unit] call GRAD_telephone_fnc_getRadio;
 
@@ -21,10 +22,9 @@ _object = _caller;
 
 //remove note
 if (_mode == "remove") then {
-    _selector = [_phonebook, _number] call BIS_fnc_findNestedElement;
+    // _selector = [_phonebook, _number] call BIS_fnc_findNestedElement;
 
-    _phonebook set [_selector,"deletethis"];
-    _phonebook = _phonebook - ["deletethis"];
+    _phonebook deleteAt _index;
 
     missionNamespace setVariable [_publicPhoneBookForID, _phonebook, true];
 };
@@ -36,4 +36,8 @@ if (_mode == "add") then {
     missionNamespace setVariable [_publicPhoneBookForID, _phonebook, true];
 
     if (GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["modifyPhonebook: updating with %1, %2, %3, %4, %5", _radioID, _name, _number, _isIED, _object]; };
+};
+
+if (_mode == "none") then {
+	diag_log format ["nokia3310 error: no mode for modifying phonebook"];
 };

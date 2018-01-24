@@ -1,7 +1,8 @@
 #include "..\macros_idc.hpp"
 params ["_display","_index"];
 
-private _pages = [  ["Ringing \ntone","Attraction","tones_ringing"],
+// todo : read real values of set ring tones
+private _pages = [  ["Ringing tone","Attraction","tones_ringing"],
                     ["Alarm \ntone","Tick Tick","tones_alarm"]
 ];
 
