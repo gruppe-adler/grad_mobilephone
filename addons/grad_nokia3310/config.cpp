@@ -47,7 +47,6 @@ class CfgFontFamilies
         "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC31",
         "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC34",
         "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC35",
-        "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC36",
         "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC37",
         "\grad_nokia3310\data\fonts\NokiaCellphoneFC6\NokiaCellphoneFC46"
       };

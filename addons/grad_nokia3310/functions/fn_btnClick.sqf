@@ -13,6 +13,9 @@ switch (toLower GRAD_Nokia3310_curPage) do {
      case "tones": {
           [_button, _display] call GRAD_Nokia3310_fnc_btnClick_tones;
      };
+     case "settings": {
+          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_settings;
+     };
      case "phonebook": {
           [_button, _display] call GRAD_Nokia3310_fnc_btnClick_phonebook;
      };

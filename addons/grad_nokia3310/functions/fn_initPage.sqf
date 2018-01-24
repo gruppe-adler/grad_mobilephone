@@ -75,7 +75,21 @@ switch (toLower _newPage) do {
 
           [_display, _Index] call GRAD_Nokia3310_fnc_scroll_tones;
      };
+     case "settings": {
+          (_display displayCtrl IDC_CTRLGROUP_TONES) ctrlShow true;
+          (_display displayCtrl IDC_CTRLGROUP_TONES) ctrlEnable false;
+
+          (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "Select";
+
+          (_display displayCtrl IDC_TONES_LIST) ctrlShow false;
+
+          private _index = if (count _history isEqualTo 1) then {0} else {(_history select 1) - 1};
+
+          [_display, _Index] call GRAD_Nokia3310_fnc_scroll_settings;
+     };
      case "phonebook": {
+          
+
           (_display displayCtrl IDC_CTRLGROUP_PHONEBOOK) ctrlShow true;
           (_display displayCtrl IDC_CTRLGROUP_PHONEBOOK) ctrlEnable false;
 
@@ -85,17 +99,7 @@ switch (toLower _newPage) do {
           (_display displayCtrl IDC_PHONEBOOK_VIEW_NAME) ctrlShow false;
           (_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER) ctrlShow false;
 
-          //fill contacts
-          private _contacts = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
-          
-          lbClear (_display displayCtrl IDC_PHONEBOOK_CONTACTS);
-          (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd "<New contact>";
-
-          // phonebook structure: _radioID, _name, _number, _isIED, _object
-          {
-               private _i = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd (_x select 1);
-               (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbSetData [_i,(_x select 2)];
-          } forEach _contacts;
+          [_display] call GRAD_Nokia3310_fnc_refreshPhonebook;
 
           //fill settings
           lbClear (_display displayCtrl IDC_PHONEBOOK_SETTINGS);

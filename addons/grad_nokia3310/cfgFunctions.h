@@ -12,6 +12,7 @@ class CfgFunctions
 			class btnClick_mainmenu;
 			class btnClick_phonebook;
 			class btnClick_phonebook_settings;
+			class btnClick_settings;
 			class btnClick_tones;
 			class btnClick_tones_list;
 
@@ -21,8 +22,10 @@ class CfgFunctions
 
 			class onLoad;
 			class onUnLoad;
+			class refreshPhonebook;
 
 			class scroll_mainmenu;
+			class scroll_settings;
 			class scroll_tones;
 
 			class soundCreateDummy;

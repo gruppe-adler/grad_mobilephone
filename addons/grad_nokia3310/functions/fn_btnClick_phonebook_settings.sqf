@@ -31,9 +31,19 @@ switch (tolower _button) do {
           private _contactName = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbText _contactIndex;
           private _contactNumber = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbData _contactIndex;
 
+          private _phoneBook = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
+          private _currentEntry = _phoneBook select _contactIndex;
+
+          _currentEntry params ["_targetRadioID", "_targetName", "_number", "_isIED", "_targetObject"];
+
           switch (lbCurSel _lb) do {
                case 0: {
                     //CALL
+                    if (_isIED) then {
+                         [_targetName, _targetObject] call GRAD_telephone_fnc_callIED;
+                    } else {
+                         [_targetRadioID, _targetName, _targetObject] call GRAD_telephone_fnc_callDialing;
+                    };
                };
                case 1: {
                     //VIEW DETAILS
@@ -51,6 +61,14 @@ switch (tolower _button) do {
                };
                case 3: {
                     //DELETE
+                    [_display, (_lb lbData (lbCurSel _lb)), [
+                         (_display displayCtrl IDC_PHONEBOOK_VIEW_NAME),
+                         (_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER),
+                         (_display displayCtrl IDC_ENTERTEXT)
+                    ]] spawn GRAD_Nokia3310_fnc_confirmAction;
+
+                    [player, "remove", _targetRadioID, player, _number, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
+
                };
           };
      };

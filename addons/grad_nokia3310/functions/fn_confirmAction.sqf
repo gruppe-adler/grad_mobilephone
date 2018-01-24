@@ -18,24 +18,21 @@ if (!isMultiplayer) then {
   _x ctrlShow false;
 } forEach _elementsActive;
 
-private _enterTextCache = ctrlText (_display displayCtrl IDC_ENTERTEXT);
-(_display displayCtrl IDC_ENTERTEXT) ctrlSetText "";
-
 (_display displayCtrl IDC_CTRLGROUP_CONFIRM) ctrlShow true;
 (_display displayCtrl IDC_ACTION_CONFIRM2) ctrlShow false;
 (_display displayCtrl IDC_ACTION_CONFIRM3) ctrlShow false;
 
 (_display displayCtrl IDC_ACTION_CONFIRM1) ctrlShow true;
 (_display displayCtrl IDC_ACTION_CONFIRM_TEXT) ctrlShow true;
-uiSleep 1;
+uiSleep 0.5;
 
 (_display displayCtrl IDC_ACTION_CONFIRM1) ctrlShow false;
 (_display displayCtrl IDC_ACTION_CONFIRM2) ctrlShow true;
-uiSleep 1;
+uiSleep 0.25;
 
 (_display displayCtrl IDC_ACTION_CONFIRM2) ctrlShow false;
 (_display displayCtrl IDC_ACTION_CONFIRM3) ctrlShow true;
-uiSleep 1;
+uiSleep 0.5;
 
 (_display displayCtrl IDC_ACTION_CONFIRM3) ctrlShow false;
 (_display displayCtrl IDC_CTRLGROUP_CONFIRM) ctrlShow false;
@@ -44,7 +41,5 @@ uiSleep 1;
 {
   _x ctrlShow true;
 } forEach _elementsActive;
-
-(_display displayCtrl IDC_ENTERTEXT) ctrlSetText _enterTextCache;
 
 player setVariable ["GRAD_telephone_displayBusy",false];

@@ -1,4 +1,4 @@
-params ["_ied", "_name"];
+params ["_name", "_ied"];
 
 player setVariable ["GRAD_telephone_currentState", "dialing", true];
 player setVariable ["GRAD_telephone_currentPartner", _name, true];

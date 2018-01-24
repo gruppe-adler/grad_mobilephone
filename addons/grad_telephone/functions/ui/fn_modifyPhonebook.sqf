@@ -8,7 +8,7 @@ private ["_phonebook", "_name", "_object", "_phoneID", "_phone"];
 
 params ["_unit", "_mode", "_radioID", "_caller", "_number", "_isIED"];
 
-_phoneID = [player] call GRAD_telephone_fnc_getRadio;
+_phoneID = [_unit] call GRAD_telephone_fnc_getRadio;
 
 _publicPhoneBookForID = "GRAD_telephone_phonebook_" + _phoneID;
 

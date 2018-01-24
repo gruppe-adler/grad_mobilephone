@@ -54,6 +54,14 @@ class GRAD_Nokia3310_dialog
 				#include "partials\tones.hpp"
 			};
 		};
+		class settings: mainmenu
+		{
+			idc = IDC_CTRLGROUP_SETTINGS;
+			class controls
+			{
+				#include "partials\settings.hpp"
+			};
+		};
 		class phonebook: tones
 		{
 			idc = IDC_CTRLGROUP_PHONEBOOK;

@@ -1,3 +1,7 @@
+/* 
+	server
+*/
+
 // generates unique number for radioID
 params ["_caller", "_radioID"];
 

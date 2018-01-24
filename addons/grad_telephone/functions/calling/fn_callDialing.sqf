@@ -2,7 +2,7 @@
 
 private ["_possibleCallTargets", "_foundRadioInUnits", "_unitRadio", "_radioItemID", "_onGround", "_inVehicle", "_possibleHolder", "_main"];
 
-params ["_radioID", "_name", "_targetObject"];
+params ["_radioID", "_name", ["_targetObject", objNull]];
 
 player setVariable ["GRAD_telephone_currentState", "dialing", true];
 player setVariable ["GRAD_telephone_currentPartner", _targetObject, true];
