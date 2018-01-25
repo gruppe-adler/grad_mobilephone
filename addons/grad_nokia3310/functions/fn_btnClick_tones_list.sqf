@@ -45,12 +45,16 @@ switch (tolower _button) do {
                _display displayCtrl IDC_ENTERTEXT
           ]] spawn GRAD_Nokia3310_fnc_confirmAction;
 
-          switch (_display displayCtrl IDC_TONES_SETTING) do {
+          diag_log format ["IDC_TONES_SETTING is %1", (ctrlText (_display displayCtrl IDC_TONES_SETTING))];
+
+          private _radioID = [player] call GRAD_telephone_fnc_getRadio;
+
+          switch (ctrlText (_display displayCtrl IDC_TONES_SETTING)) do {
                case "Ringing tone": {
-                    // todo: setringtoneforphoneid call
+                    [_radioID, (_lb lbData (lbCurSel _lb))] call GRAD_telephone_fnc_setRingToneForPhoneID;
                };
                case "Alarm \ntone": {
-
+                    [_radioID, (_lb lbData (lbCurSel _lb))] call GRAD_telephone_fnc_setAlarmToneForPhoneID;
                };
           };
      };

@@ -99,8 +99,6 @@ switch (toLower _newPage) do {
           (_display displayCtrl IDC_PHONEBOOK_VIEW_NAME) ctrlShow false;
           (_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER) ctrlShow false;
 
-          //[_display] call GRAD_Nokia3310_fnc_refreshPhonebook;
-
           GRAD_TELEPHONE_PHONEBOOK_LOCAL = [];
 
           //fill contacts
@@ -127,7 +125,7 @@ switch (toLower _newPage) do {
           lbClear (_display displayCtrl IDC_PHONEBOOK_SETTINGS);
           {
                (_display displayCtrl IDC_PHONEBOOK_SETTINGS) lbAdd _x;
-          } forEach ["Call Contact", "View Details", "Edit Contact", "Delete Contact"];
+          } forEach ["Call Contact", "View Details", "Delete Contact"];
 
           private _index = if (count _history isEqualTo 1) then {0} else {(_history select 1)};
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbsetCurSel _index;

@@ -1,11 +1,13 @@
 #include "..\macros_idc.hpp"
+#include "..\tones.hpp"
+
 params ["_display","_index"];
 
 private _radioID = [player] call GRAD_telephone_fnc_getRadio;
 
 // todo : read real values of set ring tones
-private _currentRingingTone = [_radioID] call GRAD_telephone_fnc_getToneForPhoneID;
-private _currentAlarmTone = [_radioID] call GRAD_telephone_fnc_getRingToneForPhoneID;
+private _currentRingingTone = [_radioID] call GRAD_telephone_fnc_getRingToneForPhoneID;
+private _currentAlarmTone = [_radioID] call GRAD_telephone_fnc_getAlarmToneForPhoneID;
 
 if (count _currentRingingTone < 1) then {
 	_currentRingingTone = GRAD_NOKIA3310_TONES select 0;
@@ -15,7 +17,8 @@ if (count _currentAlarmTone < 1) then {
 	_currentAlarmTone = GRAD_NOKIA3310_TONES select 0;
 };
 
-private _pages = [  ["Ringing tone",_currentAlarmTone select 0,_currentAlarmTone select 1],
+
+private _pages = [  ["Ringing tone",_currentRingingTone select 0,_currentRingingTone select 1],
                     ["Alarm \ntone",_currentAlarmTone select 0,_currentAlarmTone select 1]
 ];
 

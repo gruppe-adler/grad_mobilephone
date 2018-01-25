@@ -58,19 +58,26 @@ switch (tolower _button) do {
                     (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "";
                };
                case 2: {
-                    //EDIT
-               };
-               case 3: {
                     //DELETE
-                    [_display, (_lb lbData (lbCurSel _lb)), [
-                         (_display displayCtrl IDC_PHONEBOOK_VIEW_NAME),
-                         (_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER),
-                         (_display displayCtrl IDC_ENTERTEXT)
-                    ]] spawn GRAD_Nokia3310_fnc_confirmAction;
+                    [_display, (_lb lbData (lbCurSel _lb)), 
+                         [
+                              (_display displayCtrl IDC_PHONEBOOK_CONTACTS),
+                              (_display displayCtrl IDC_HISTORY),
+                              (_display displayCtrl IDC_ENTERTEXT)
+                         ], 
+                         [
+                              (_display displayCtrl IDC_PHONEBOOK_SETTINGS)
+                         ]
+                    ] spawn GRAD_Nokia3310_fnc_confirmAction;
 
-                    [player, (lbCurSel _lb), "remove", _targetRadioID, player, _phoneNumber, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
-                    (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbDelete (lbCurSel _lb);
-                    // [_display] call GRAD_Nokia3310_fnc_refreshPhonebook;
+                    // get selected entry from phonebook
+                    private _currentEntryIndex = (lbCurSel (_display displayCtrl IDC_PHONEBOOK_CONTACTS));
+                    [player, _currentEntryIndex, "remove", _targetRadioID, player, _phoneNumber, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
+                    (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbDelete _currentEntryIndex;
+                    
+                    if (GRAD_TELEPHONE_DEBUG_MODE) then { 
+                         diag_log format ["remove called with index: %1", _currentEntryIndex]; 
+                    };
 
                };
           };

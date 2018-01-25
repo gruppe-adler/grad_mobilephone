@@ -1,7 +1,7 @@
 disableSerialization;
 
 #include "..\macros_idc.hpp"
-params ["_display", "_tone", "_elementsActive"];
+params ["_display", "_tone", "_elementsToShow", ["_elementsToHide",[]]];
 
 player setVariable ["GRAD_telephone_displayBusy",true];
 player setVariable ["GRAD_telephone_currentPhoneRingtone", _tone, true];
@@ -16,7 +16,7 @@ if (!isMultiplayer) then {
 
 {
   _x ctrlShow false;
-} forEach _elementsActive;
+} forEach (_elementsToShow + _elementsToHide);
 
 (_display displayCtrl IDC_CTRLGROUP_CONFIRM) ctrlShow true;
 (_display displayCtrl IDC_ACTION_CONFIRM2) ctrlShow false;
@@ -40,6 +40,6 @@ uiSleep 0.5;
 
 {
   _x ctrlShow true;
-} forEach _elementsActive;
+} forEach _elementsToShow;
 
 player setVariable ["GRAD_telephone_displayBusy",false];

@@ -27,6 +27,10 @@ if (_mode == "remove") then {
     _phonebook deleteAt _index;
 
     missionNamespace setVariable [_publicPhoneBookForID, _phonebook, true];
+
+    if (GRAD_TELEPHONE_DEBUG_MODE) then { 
+	     diag_log format ["phonebook: %1, _index was %2", _phonebook, _index]; 
+	};
 };
 
 //add note
