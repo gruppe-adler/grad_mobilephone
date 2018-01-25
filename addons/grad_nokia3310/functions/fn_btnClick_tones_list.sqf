@@ -1,4 +1,6 @@
 #include "..\macros_idc.hpp"
+#include "..\tones.hpp"
+
 params ["_button","_display"];
 
 private _lb = _display displayCtrl IDC_TONES_LIST;
@@ -51,10 +53,10 @@ switch (tolower _button) do {
 
           switch (ctrlText (_display displayCtrl IDC_TONES_SETTING)) do {
                case "Ringing tone": {
-                    [_radioID, (_lb lbData (lbCurSel _lb))] call GRAD_telephone_fnc_setRingToneForPhoneID;
+                    [_radioID, GRAD_NOKIA3310_TONES select (lbCurSel _lb)] call GRAD_telephone_fnc_setRingToneForPhoneID;
                };
                case "Alarm \ntone": {
-                    [_radioID, (_lb lbData (lbCurSel _lb))] call GRAD_telephone_fnc_setAlarmToneForPhoneID;
+                    [_radioID, GRAD_NOKIA3310_TONES select (lbCurSel _lb)] call GRAD_telephone_fnc_setAlarmToneForPhoneID;
                };
           };
      };

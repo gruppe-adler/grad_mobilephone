@@ -4,8 +4,6 @@
 params ["_display","_index"];
 
 private _radioID = [player] call GRAD_telephone_fnc_getRadio;
-
-// todo : read real values of set ring tones
 private _currentRingingTone = [_radioID] call GRAD_telephone_fnc_getRingToneForPhoneID;
 private _currentAlarmTone = [_radioID] call GRAD_telephone_fnc_getAlarmToneForPhoneID;
 
