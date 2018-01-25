@@ -11,6 +11,9 @@ switch (tolower _button) do {
      case "cancel": {
           player setVariable ["GRAD_telephone_listenSoundPreview",false];
 
+          // reset progress in scrollview
+          _lb lbsetCurSel 0;
+
           _lb ctrlShow false;
           (_display displayCtrl IDC_TONES_SETTING) ctrlShow true;
           (_display displayCtrl IDC_TONES_VALUE) ctrlShow true;
