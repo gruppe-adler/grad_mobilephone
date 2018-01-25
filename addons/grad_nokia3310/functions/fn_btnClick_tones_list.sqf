@@ -41,5 +41,14 @@ switch (tolower _button) do {
                _display displayCtrl IDC_HISTORY,
                _display displayCtrl IDC_ENTERTEXT
           ]] spawn GRAD_Nokia3310_fnc_confirmAction;
+
+          switch (_display displayCtrl IDC_TONES_SETTING) do {
+               case "Ringing tone": {
+                    // todo: setringtoneforphoneid call
+               };
+               case "Alarm \ntone": {
+
+               };
+          };
      };
 };
