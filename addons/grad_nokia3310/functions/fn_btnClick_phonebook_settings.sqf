@@ -69,6 +69,7 @@ switch (tolower _button) do {
                     ]] spawn GRAD_Nokia3310_fnc_confirmAction;
 
                     [player, (lbCurSel _lb), "remove", _targetRadioID, player, _phoneNumber, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
+                    (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbDelete (lbCurSel _lb);
                     // [_display] call GRAD_Nokia3310_fnc_refreshPhonebook;
 
                };

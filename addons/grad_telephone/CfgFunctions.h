@@ -58,7 +58,7 @@ class CfgFunctions
 			class destroyIED;
 			class isSelectedContactIED;
 			class programIED;
-		}
+		};
 
 		class interaction {
 			file = "\grad_telephone\functions\interaction";
@@ -68,6 +68,13 @@ class CfgFunctions
 			class interactReceiveNumber;
 			class playGiveAnimation;
 		}
+
+		class settings {
+			file = "\grad_telephone\functions\settings";
+
+			class getToneForPhoneID;
+			class setToneForPhoneID;
+		};
 
 		class ui {
 			file = "\grad_telephone\functions\ui";
@@ -90,7 +97,7 @@ class CfgFunctions
 			class showNextMenuEntry;
 			class showRadioInfo;
 
-		}
+		};
 
 
 	};

@@ -1,5 +1,5 @@
 params ["_phoneID"];
 
-private _publicPhoneBookForID = "GRAD_telephone_phonebook_" + _phoneID;
+private _publicSetToneForID = "GRAD_telephone_setTone_" + _phoneID;
 
-missionNamespace getVariable [_publicPhoneBookForID, []]
+missionNamespace getVariable [_publicSetToneForID, []]
