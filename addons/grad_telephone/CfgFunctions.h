@@ -72,8 +72,10 @@ class CfgFunctions
 		class settings {
 			file = "\grad_telephone\functions\settings";
 
-			class getToneForPhoneID;
-			class setToneForPhoneID;
+			class getAlarmToneForPhoneID;
+			class getRingToneForPhoneID;
+			class setAlarmToneForPhoneID;
+			class setRingToneForPhoneID;
 		};
 
 		class ui {
