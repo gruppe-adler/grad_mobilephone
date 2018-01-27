@@ -56,7 +56,6 @@ class CfgFunctions
 
 			class callIED;
 			class destroyIED;
-			class isSelectedContactIED;
 			class programIED;
 		};
 
@@ -84,20 +83,12 @@ class CfgFunctions
 			class addDummyData;
 			class addToPhonebookForRadioID;
 			class deleteFromPhonebookForRadioID;
-			class getPhonePhonebook;
-			class getSelectedContactName;
-			class getSelectedContactObject;
-			class getSelectedContactRadioID;
+			class getPhonebookForRadioID;
 			class isNotInContacts;
-			class restoreDisplay;
-			class setDisplayName;
-			class setDisplayNumber;
 			class setPhonePhonebook;
 			class showHint;
 			class showHintCall;
 			class showHintUnlimited;
-			class showNextContact;
-			class showNextMenuEntry;
 			class showRadioInfo;
 
 		};

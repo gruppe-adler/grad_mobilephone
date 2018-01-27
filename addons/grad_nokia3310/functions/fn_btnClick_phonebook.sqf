@@ -24,7 +24,7 @@ switch (tolower _button) do {
      };
      case "select": {
           if (lbCurSel _lb isEqualTo 0) then {
-
+               // todo create new contact manually
           } else {
                //show settings and hide contacts
                (_display displayCtrl IDC_PHONEBOOK_SETTINGS) ctrlShow true;

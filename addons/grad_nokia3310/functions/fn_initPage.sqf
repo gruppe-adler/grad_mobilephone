@@ -102,7 +102,7 @@ switch (toLower _newPage) do {
           GRAD_TELEPHONE_PHONEBOOK_LOCAL = [];
 
           //fill contacts
-          private _contacts = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
+          private _contacts = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonebookForRadioID;
 
           lbClear (_display displayCtrl IDC_PHONEBOOK_CONTACTS);
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbAdd "<New contact>";

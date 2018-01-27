@@ -1,5 +1,6 @@
 #define GRAD_NOKIA3310_TONES [ \
-	["Attraction", "nokia_attraction"], \
+	["Nokia Original", "nokia_original"], \
+    ["Attraction", "nokia_attraction"], \
     ["Badinerie", "nokia_badinerie"], \
     ["City Bird", "nokia_citybird"], \
     ["Frog", "nokia_frog"], \

@@ -31,20 +31,26 @@ switch (tolower _button) do {
           private _contactName = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbText _contactIndex;
           private _contactNumber = (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbData _contactIndex;
 
-          private _phoneBook = [[player] call GRAD_telephone_fnc_getRadio] call GRAD_telephone_fnc_getPhonePhonebook;
-          private _currentEntry = _phoneBook select _contactIndex;
+          private _phoneBook = [player getVariable ["GRAD_telephone_phoneID",""]] call GRAD_telephone_fnc_getPhonebookForRadioID;
+          private _currentEntry = _phoneBook select (_contactIndex - 1); // first entry is "new contact"
 
           // ["1", "XiviD", "0160 7945321", false, objNull]
+          // 14:27:47 "_currentEntry is <null>"
           _currentEntry params ["_targetRadioID", "_targetName", "_phoneNumber", "_isIED", "_targetObject"];
+
+          diag_log format ["_currentEntry is %1, _index is %2, _phoneBook is %3", _currentEntry, _contactIndex, _phoneBook];
 
           switch (lbCurSel _lb) do {
                case 0: {
                     //CALL
+                     diag_log format ["call wish detected"];
+
                     if (_isIED) then {
-                         [_targetName, _targetObject] call GRAD_telephone_fnc_callIED;
+                         [_targetName, _targetObject] spawn GRAD_telephone_fnc_callIED;
                     } else {
-                         [_targetRadioID, _targetName, _targetObject] call GRAD_telephone_fnc_callDialing;
+                         [_targetRadioID, _targetName, _targetObject] spawn GRAD_telephone_fnc_callDialing;
                     };
+                    [_display, _targetName] call GRAD_telephone_fnc_displayDialing;
                };
                case 1: {
                     //VIEW DETAILS

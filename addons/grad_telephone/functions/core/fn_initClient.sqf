@@ -70,7 +70,7 @@ if (!isMultiplayer) then {
         {
         	if ([player] call GRAD_telephone_fnc_isCellphone) then {
         		player setVariable ["GRAD_telephone_currentState", "default", true];
-                player setVariable ["GRAD_telephone_radioID", _x, true];
+                player setVariable ["GRAD_telephone_phoneID", _x, true];
 
         		[(call TFAR_fnc_activeSwRadio), 2] call TFAR_fnc_setSwStereo;
         		[player] call GRAD_telephone_fnc_setNativePhoneFrequency;

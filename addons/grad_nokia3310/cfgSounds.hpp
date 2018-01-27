@@ -1,5 +1,12 @@
 class cfgSounds {
 
+	class nokia_original {
+		name = "nokia_original";
+		// filename, volume, pitch, distance
+		sound[] = {"\grad_nokia3310\sounds\nokia_original.ogg", 1, 1, 50};
+		titles[] = {0, ""};
+	};
+
 	class ui_softclick
 	{
 		name = "ui_softclick";

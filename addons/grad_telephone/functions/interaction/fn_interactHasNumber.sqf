@@ -4,8 +4,7 @@ params ["_target", "_number"];
 
 _result = false;
 
-_phonebook = (_target getVariable ["GRAD_telephone_radioID", objNull]) getVariable ["GRAD_telephone_phonebook", []];
-
+_phonebook = [_target getVariable ["GRAD_telephone_phoneID", ""]] call GRAD_telephone_fnc_getPhonebookForRadioID;
 
 _array = [_phonebook, _number] call BIS_fnc_findNestedElement;
 

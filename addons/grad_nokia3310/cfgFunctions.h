@@ -17,6 +17,7 @@ class CfgFunctions
 			class btnClick_tones_list;
 
 			class confirmAction;
+			class displayDialing;
 			class history;
 			class initPage;
 
