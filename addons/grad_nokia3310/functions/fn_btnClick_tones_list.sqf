@@ -40,23 +40,32 @@ switch (tolower _button) do {
           }, (_lb lbData _nextIndex), 0.5] call CBA_fnc_waitAndExecute;
      };
      case "select": {
+          // stop sound preview
           player setVariable ["GRAD_telephone_listenSoundPreview",false];
+          
+          // start confirm action animation
           [_display, (_lb lbData (lbCurSel _lb)), [
                _display displayCtrl IDC_TONES_LIST,
                _display displayCtrl IDC_HISTORY,
                _display displayCtrl IDC_ENTERTEXT
           ]] spawn GRAD_Nokia3310_fnc_confirmAction;
 
-          diag_log format ["IDC_TONES_SETTING is %1", (ctrlText (_display displayCtrl IDC_TONES_SETTING))];
+          //diag_log format ["IDC_TONES_SETTING is %1", (ctrlText (_display displayCtrl IDC_TONES_SETTING))];
 
           private _radioID = [player] call GRAD_telephone_fnc_getRadio;
 
           switch (ctrlText (_display displayCtrl IDC_TONES_SETTING)) do {
                case "Ringing tone": {
+                    // save for future uses
                     [_radioID, GRAD_NOKIA3310_TONES select (lbCurSel _lb)] call GRAD_telephone_fnc_setRingToneForPhoneID;
+                    // update display instantly
+                    (_display displayCtrl IDC_TONES_VALUE) ctrlSetText (GRAD_NOKIA3310_TONES select (lbCurSel _lb) select 0);
                };
                case "Alarm \ntone": {
+                    // save for future uses
                     [_radioID, GRAD_NOKIA3310_TONES select (lbCurSel _lb)] call GRAD_telephone_fnc_setAlarmToneForPhoneID;
+                    // update display instantly
+                    (_display displayCtrl IDC_TONES_VALUE) ctrlSetText (GRAD_NOKIA3310_TONES select (lbCurSel _lb) select 0);
                };
           };
      };

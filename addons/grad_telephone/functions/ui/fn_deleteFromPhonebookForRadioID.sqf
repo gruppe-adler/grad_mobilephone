@@ -1,3 +1,9 @@
+/*
+
+	deletes contact entry
+
+*/
+
 params ["_radioID", "_index"];
 
 private _phoneID = [_unit] call GRAD_telephone_fnc_getRadio;

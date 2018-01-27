@@ -1,12 +1,12 @@
 /*
 
-	adds or deletes contact entry
+	adds contact entry
 
 */
 
 private ["_phonebook", "_name", "_object", "_publicPhoneBookForID"];
 
-params ["phoneID", "_caller", "_number", "_isIED"];
+params ["_phoneID", "_caller", "_number", "_isIED"];
 
 _publicPhoneBookForID = "GRAD_telephone_phonebook_" + _phoneID;
 _phonebook = missionNamespace getVariable [_publicPhoneBookForID, []];
