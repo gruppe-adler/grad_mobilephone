@@ -14,4 +14,4 @@ _unit setVariable ["GRAD_telephone_myIEDlist", _IEDNum];
 
 _number = str _IEDNum;
 
-[_unit, "add", _ied, _generatedName, _number, true] call GRAD_telephone_fnc_modifyPhonebook;
+[_ied, _generatedName, _number, true] call GRAD_telephone_fnc_addToPhonebookForRadioID;

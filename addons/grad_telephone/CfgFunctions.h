@@ -82,12 +82,13 @@ class CfgFunctions
 			file = "\grad_telephone\functions\ui";
 
 			class addDummyData;
+			class addToPhonebookForRadioID;
+			class deleteFromPhonebookForRadioID;
 			class getPhonePhonebook;
 			class getSelectedContactName;
 			class getSelectedContactObject;
 			class getSelectedContactRadioID;
 			class isNotInContacts;
-			class modifyPhonebook;
 			class restoreDisplay;
 			class setDisplayName;
 			class setDisplayNumber;
