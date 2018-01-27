@@ -64,7 +64,11 @@ class CfgWeapons
     descriptionShort = "Nokia 3310 Mobile Phone";
     scope = 2;
     scopeCurator = 2;
-    model = "\A3\Structures_F\Items\Electronics\MobilePhone_old_F.p3d";
+    model = "\grad_telephone_items\models\nokia3310.p3d";
+    hiddenSelections[] = {"camo"};
+    hiddenSelectionsTextures[] = {"\grad_telephone_items\models\nokia3310.paa"};
+    
+
     picture = "\grad_telephone_items\nokia3310\nokia3310str_icon.paa";
     dlc = "grad_telephone_fakedlc";
     tf_prototype = 1;

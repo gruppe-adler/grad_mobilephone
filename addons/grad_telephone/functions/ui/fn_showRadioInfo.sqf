@@ -58,4 +58,4 @@ _hintText = format [("<t size='1' align='center'>%1 <img size='" + _imagesize +
 	"' image='%2'/></t><br />
 	<t align='center'>%3</t><br />"), _realname,_picture,_text];
 	
-[parseText (_hintText), _timeout] call TFAR_fnc_showHint;
+//todo callback to display

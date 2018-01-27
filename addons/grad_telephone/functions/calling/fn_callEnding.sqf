@@ -1,6 +1,7 @@
 playSound "GRAD_telephone_phoneRingBusy1";
 
-["default",2,"Ended Call"] spawn GRAD_telephone_fnc_showHint;
+// todo: callback to display
+
 
 call TFAR_fnc_HideHint; // ("TFAR_HintLayer" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
 player setVariable ["GRAD_telephone_currentState", "ending", true];

@@ -7,6 +7,10 @@ private _history = [_display] call GRAD_Nokia3310_fnc_history;
 
 switch (tolower _button) do {
      case "cancel": {
+          if ([player] call GRAD_telephone_fnc_isCalling) then {
+               [] spawn GRAD_telephone_fnc_callEnding;
+          };
+               
           //hide settings and show contacts
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) ctrlShow true;
           _lb ctrlShow false;
@@ -43,14 +47,14 @@ switch (tolower _button) do {
           switch (lbCurSel _lb) do {
                case 0: {
                     //CALL
-                     diag_log format ["call wish detected"];
-
+                    // diag_log format ["call wish detected"];
+                    player setVariable ["GRAD_telephone_currentState", "dialing", true];
                     if (_isIED) then {
                          [_targetName, _targetObject] spawn GRAD_telephone_fnc_callIED;
                     } else {
                          [_targetRadioID, _targetName] spawn GRAD_telephone_fnc_callDialing;
                     };
-                    [_display, _targetName] call GRAD_telephone_fnc_displayDialing;
+                    [_display, _targetName] call GRAD_nokia3310_fnc_displayDialing;
                };
                case 1: {
                     //VIEW DETAILS

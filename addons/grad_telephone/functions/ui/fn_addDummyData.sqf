@@ -17,8 +17,10 @@ params ["_phoneID"];
 [
 	_phoneID,
 	[
-		["1", "XiviD", "0160 7945321", false, objNull],
-		["2", "Zarrck", "0170 5456787", false, objNull],
-		["3", "Fussel", "0151 2311122", false, objNull]
+		["tf_nokia3310_1", "XiviD", "0160 7945321", false, objNull],
+		["tf_nokia3310_2", "Zarrck", "0170 5456787", false, objNull],
+		["tf_nokia3310_3", "Fussel", "0151 2311122", false, objNull],
+		["tf_nokia3310_4", "Slant", "0152 7245325", false, objNull],
+		["tf_nokia3310_5", "Simmax", "0153 2516139", false, objNull]
 	]
 ] call GRAD_telephone_fnc_setPhonePhonebook;

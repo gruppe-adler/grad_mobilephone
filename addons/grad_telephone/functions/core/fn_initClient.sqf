@@ -22,7 +22,7 @@ if (!isMultiplayer) then {
               		(player getVariable ["GRAD_telephone_currentState", "noPhone"] == "waiting") ||
               		(player getVariable ["GRAD_telephone_currentState", "noPhone"] == "dialing")
           		) then {
-          			["default",2,"Ended Call"] spawn GRAD_telephone_fnc_showHint;
+          			//todo call back to display
           		};
 
             _radioString = "GRAD_telephone_" + _x + "_contacts";
@@ -48,6 +48,13 @@ if (!isMultiplayer) then {
             [player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_telephone_fnc_getUniquePhoneNumber", 2, false];
     	};
     }, _x] call TFAR_fnc_addEventHandler; 
+
+
+    ["tangentOverride","OnBeforeTangent", {
+
+
+
+    }, _x] call TFAR_fnc_addEventHandler;
 
 
     // suppress radio hint when transmitting if phone used

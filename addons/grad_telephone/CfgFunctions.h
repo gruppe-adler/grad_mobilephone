@@ -14,6 +14,7 @@ class CfgFunctions
 			class callTalking;
 			class callWaiting;
 			class callWaitingDroppedPhone;
+			class isCalling;
 
 			class pleaseReceive;
 			class setCallersPhoneFrequency;
@@ -86,7 +87,6 @@ class CfgFunctions
 			class getPhonebookForRadioID;
 			class isNotInContacts;
 			class setPhonePhonebook;
-			class showHint;
 			class showHintCall;
 			class showHintUnlimited;
 			class showRadioInfo;
