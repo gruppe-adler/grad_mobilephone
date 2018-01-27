@@ -48,7 +48,7 @@ switch (tolower _button) do {
                     if (_isIED) then {
                          [_targetName, _targetObject] spawn GRAD_telephone_fnc_callIED;
                     } else {
-                         [_targetRadioID, _targetName, _targetObject] spawn GRAD_telephone_fnc_callDialing;
+                         [_targetRadioID, _targetName] spawn GRAD_telephone_fnc_callDialing;
                     };
                     [_display, _targetName] call GRAD_telephone_fnc_displayDialing;
                };

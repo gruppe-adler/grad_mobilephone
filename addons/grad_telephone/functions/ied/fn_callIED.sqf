@@ -8,7 +8,7 @@ sleep ((random 3) + 2);
 
 // check if IED && player is in reach of celltower, exit if not
 
-if ([_ied] call GRAD_telephone_fnc_isCellTowerReachable && [_player] call GRAD_telephone_fnc_isCellTowerReachable) then {
+if ([_ied] call GRAD_telephone_fnc_isCellTowerReachable && [player] call GRAD_telephone_fnc_isCellTowerReachable) then {
 	if (player distance2D _nearestMarkerPlayer > GRAD_TELEPHONE_MAX_CELLTOWER_RANGE) exitWith {
 		player setVariable ["GRAD_telephone_currentState", "default", true];
 		player setVariable ["GRAD_telephone_currentPartner", objNull, true];

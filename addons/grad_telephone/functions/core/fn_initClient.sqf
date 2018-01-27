@@ -45,7 +45,6 @@ if (!isMultiplayer) then {
     ['refreshDisplay', 'OnRadioOpen', { 
 
     	if ([player] call GRAD_telephone_fnc_isCellphone) then { 
-    		[] call GRAD_telephone_fnc_restoreDisplay;
             [player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_telephone_fnc_getUniquePhoneNumber", 2, false];
     	};
     }, _x] call TFAR_fnc_addEventHandler; 
