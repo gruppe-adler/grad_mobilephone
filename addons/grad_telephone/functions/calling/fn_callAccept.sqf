@@ -6,7 +6,6 @@ params [["_objectCaller", objNull], "_objectCalled"];
 if (isNull _objectCaller) exitWith { if (GRAD_TELEPHONE_DEBUG_MODE) then {diag_log format ["_objectCalled didnt find a caller %1", _objectCalled];}; };
 
 _objectCaller setVariable ["GRAD_telephone_currentState", "talking", true];
-_objectCalled setVariable ["GRAD_telephone_currentState", "talking", true];
 
 _myFrequency = [_objectCalled] call GRAD_telephone_fnc_getNativePhoneFrequency;
 _myCode = [_objectCalled] call GRAD_telephone_fnc_getNativePhoneCode;
