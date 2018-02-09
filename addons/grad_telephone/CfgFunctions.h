@@ -50,6 +50,9 @@ class CfgFunctions
 			class isCellphone;
 			class setNativePhoneFrequency;
 
+			class tfarEndCall;
+			class tfarStartCall;
+
 		};
 
 		class ied {

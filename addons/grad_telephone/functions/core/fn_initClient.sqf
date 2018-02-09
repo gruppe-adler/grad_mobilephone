@@ -1,6 +1,33 @@
 #include "\grad_telephone\define.h"
 
+/*
+    custom variables
+*/
+
+GRAD_telephone_phone_transmitting = false;
+
+
+
+
 waitUntil {sleep 0.1;!(isNull player)};
+
+disableSerialization;
+
+#include "keys.sqf"
+
+// add keybind for transmit
+["TFAR","phoneTransmit",["Phone Call/End Call","Phone Call/End Call"],{
+      call TFAR_fnc_onPhoneTangentPressed},{
+      call TFAR_fnc_onPhoneTangentPressed},
+      [TF_tangent_sw_scancode, TF_tangent_sw_modifiers],
+      false
+] call cba_fnc_addKeybind;
+
+[] spawn {
+	waituntil {sleep 0.1;!(IsNull (findDisplay 46))};
+	(findDisplay 46) displayAddEventHandler ["keyDown", "_this call TFAR_fnc_onPhoneTangentPressedHack"];
+};
+
 
 // IDC_NOKIA3310STR_CONTACT_NAME_ID = IDC_NOKIA3310STR_CONTACT_NAME;
 
@@ -28,7 +55,7 @@ if (!isMultiplayer) then {
             _radioString = "GRAD_telephone_" + _x + "_contacts";
     		player setVariable ["GRAD_telephone_currentState", "default", true];
     		player setVariable ["GRAD_telephone_currentPartner", objNull, true];
-            
+
 
     		["preventChannelSwitchEH", "OnSWchannelSet", objNull] call TFAR_fnc_removeEventHandler;
         } else {
@@ -42,12 +69,12 @@ if (!isMultiplayer) then {
     }];
 
 
-    ['refreshDisplay', 'OnRadioOpen', { 
+    ['refreshDisplay', 'OnRadioOpen', {
 
-    	if ([player] call GRAD_telephone_fnc_isCellphone) then { 
+    	if ([player] call GRAD_telephone_fnc_isCellphone) then {
             [player, (call TFAR_fnc_activeSwRadio)] remoteExec ["GRAD_telephone_fnc_getUniquePhoneNumber", 2, false];
     	};
-    }, _x] call TFAR_fnc_addEventHandler; 
+    }, _x] call TFAR_fnc_addEventHandler;
 
 
     ["tangentOverride","OnBeforeTangent", {
@@ -58,9 +85,9 @@ if (!isMultiplayer) then {
 
 
     // suppress radio hint when transmitting if phone used
-    ['suppressRadioHint', 'OnTangent', { 
+    ['suppressRadioHint', 'OnTangent', {
 
-    	if ([player] call GRAD_telephone_fnc_isCellphone) then { 
+    	if ([player] call GRAD_telephone_fnc_isCellphone) then {
     		call TFAR_fnc_HideHint; // hijack original tfar hint, replace with our version
             if (_this select 4) then {
         	   [([player] call GRAD_telephone_fnc_getRadio), -1] call GRAD_telephone_fnc_showRadioInfo;
@@ -68,7 +95,7 @@ if (!isMultiplayer) then {
                [([player] call GRAD_telephone_fnc_getRadio), 3] call GRAD_telephone_fnc_showRadioInfo;
             };
         };
-    }, _x] call TFAR_fnc_addEventHandler; 
+    }, _x] call TFAR_fnc_addEventHandler;
 
 
     // setup phone radio when received (mono ear, homescreen)
@@ -88,7 +115,7 @@ if (!isMultiplayer) then {
         	};
         } forEach (_this select 1);
     }, _x] call TFAR_fnc_addEventHandler;
-    
+
 } forEach playableUnits + switchableUnits;
 
 
@@ -98,10 +125,10 @@ if (!isMultiplayer) then {
 [{!isNull player}, {
 
     _action = [
-    	"interactGiveNumber", 
-    	"Give phone number", 
-    	"grad_telephone\data\give.paa", 
-    	{[(_this select 1), (_this select 0)] call GRAD_telephone_fnc_interactGiveNumber;}, 
+    	"interactGiveNumber",
+    	"Give phone number",
+    	"grad_telephone\data\give.paa",
+    	{[(_this select 1), (_this select 0)] call GRAD_telephone_fnc_interactGiveNumber;},
     	{([player] call GRAD_telephone_fnc_isCellphone)}
 
     ] call ace_interact_menu_fnc_createAction;
@@ -115,10 +142,10 @@ if (!isMultiplayer) then {
 [{!isNull player}, {
 
     _action = [
-    	"programIED", 
-    	"Program IED with your phone", 
-    	"grad_telephone\data\give.paa", 
-    	{[(_this select 1), (_this select 0)] call GRAD_telephone_fnc_programIED;	}, 
+    	"programIED",
+    	"Program IED with your phone",
+    	"grad_telephone\data\give.paa",
+    	{[(_this select 1), (_this select 0)] call GRAD_telephone_fnc_programIED;	},
     	{([(_this select 1)] call GRAD_telephone_fnc_isCellphone) && ([(_this select 0)] call GRAD_telephone_fnc_isNotInContacts)}
 
     ] call ace_interact_menu_fnc_createAction;
@@ -149,7 +176,7 @@ if (!isMultiplayer) then {
     {
         [{
            (_this select 0) params ["_unit"];
-           
+
            [_unit] call GRAD_telephone_fnc_cellTowerSignalStrengthCheck;
 
         }, 5, [_x]] call CBA_fnc_addPerFrameHandler;
@@ -157,8 +184,8 @@ if (!isMultiplayer) then {
 } else {
     [{
        (_this select 0) params ["_unit"];
-       
+
        [_unit] call GRAD_telephone_fnc_cellTowerSignalStrengthCheck;
 
-    }, 5, [player]] call CBA_fnc_addPerFrameHandler;  
+    }, 5, [player]] call CBA_fnc_addPerFrameHandler;
 };

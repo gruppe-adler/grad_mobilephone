@@ -17,7 +17,9 @@ _vibrations = ["GRAD_telephone_phoneVibrate1", "GRAD_telephone_phoneVibrate2"];
 while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
 			playSound (selectRandom _ringBeeps);
 			[_item, [selectRandom _vibrations, 50]] remoteExec ["say3D",0,false];
-			_wasAlreadyRinging = true;
+
+			// todo apply glow texture to display
+			_item setObjectMaterialGlobal ["camo1",""];
 			diag_log format ["callWaitingDroppedPhone: long beep"];
 			sleep 5;
-};	
+};
