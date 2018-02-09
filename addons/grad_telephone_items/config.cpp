@@ -65,8 +65,8 @@ class CfgWeapons
     scope = 2;
     scopeCurator = 2;
     model = "\grad_telephone_items\models\nokia3310.p3d";
-    hiddenSelections[] = {"camo"};
-    hiddenSelectionsTextures[] = {"\grad_telephone_items\models\nokia3310.paa"};
+    hiddenSelections[] = {"camo","camo1"};
+    hiddenSelectionsTextures[] = {"\grad_telephone_items\models\nokia3310.paa", "\grad_telephone_items\models\display.paa"};
     
 
     picture = "\grad_telephone_items\nokia3310\nokia3310str_icon.paa";

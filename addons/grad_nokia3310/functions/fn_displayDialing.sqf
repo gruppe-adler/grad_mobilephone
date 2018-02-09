@@ -1,7 +1,7 @@
 disableSerialization;
 
 #include "..\macros_idc.hpp"
-params ["display", "_name"];
+params ["_display", "_name"];
 
 player setVariable ["GRAD_telephone_displayBusy",true];
 

@@ -10,4 +10,4 @@ private _callingStates = [
 private _currentState = _unit getVariable ["GRAD_telephone_currentState", "noPhone"];
 
 // return bool if unit is in calling state
-(_currentState find _callingStates >= 0)
+(_callingStates find _currentState >= 0)
