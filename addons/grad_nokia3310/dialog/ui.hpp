@@ -5,7 +5,7 @@ class GRAD_Nokia3310_dialog
 {
 	idd = -1;
 	movingEnable = 1;
-	onUnload = "";
+	onUnload = "_this call GRAD_Nokia3310_fnc_onUnLoad;";
 	onLoad = "_this call GRAD_Nokia3310_fnc_onLoad;";
 	class controlsBackground {
 		class background: RscPicture

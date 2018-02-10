@@ -12,6 +12,9 @@ _vibrations = ["GRAD_telephone_phoneVibrate1", "GRAD_telephone_phoneVibrate2"];
 
 
 
+[_item, player] remoteExec ["GRAD_telephone_fnc_createCallingLight"];
+
+_item setObjectTextureGlobal ["camo1", "\grad_telephone_items\models\display_light.paa"];
 
 // while player is waiting for feedback, play ringing beeps on item
 while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"} do {
@@ -19,7 +22,8 @@ while {player getVariable ["GRAD_telephone_currentState","noPhone"] == "waiting"
 			[_item, [selectRandom _vibrations, 50]] remoteExec ["say3D",0,false];
 
 			// todo apply glow texture to display
-			_item setObjectMaterialGlobal ["camo1",""];
 			diag_log format ["callWaitingDroppedPhone: long beep"];
 			sleep 5;
 };
+
+_item setObjectTextureGlobal ["camo1", "\grad_telephone_items\models\display.paa"];

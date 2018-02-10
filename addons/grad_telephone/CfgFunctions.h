@@ -14,6 +14,7 @@ class CfgFunctions
 			class callTalking;
 			class callWaiting;
 			class callWaitingDroppedPhone;
+			class createCallingLight;
 			class isCalling;
 
 			class pleaseReceive;

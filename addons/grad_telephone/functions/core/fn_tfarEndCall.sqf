@@ -1,3 +1,5 @@
+private _radio = [player] call GRAD_telephone_fnc_getRadio;
+
 ["OnBeforeTangent",
   TFAR_currentUnit,
   [TFAR_currentUnit, _radio, 0, false, false]

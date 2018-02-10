@@ -7,14 +7,17 @@ if (time - TF_last_lr_tangent_press > 0.5) then {
 
 			_depth = TFAR_currentUnit call TFAR_fnc_eyeDepth;
 
-			if ([TFAR_currentUnit,
-				TFAR_currentUnit call TFAR_fnc_vehicleIsIsolatedAndInside,
-				[TFAR_currentUnit call TFAR_fnc_vehicleIsIsolatedAndInside,
-				_depth] call TFAR_fnc_canSpeak, _depth] call TFAR_fnc_canUseSWRadio) then {
+			if (	[TFAR_currentUnit,
+					TFAR_currentUnit call TFAR_fnc_vehicleIsIsolatedAndInside,
+					[TFAR_currentUnit call TFAR_fnc_vehicleIsIsolatedAndInside,
+					_depth] call TFAR_fnc_canSpeak, _depth] call TFAR_fnc_canUseSWRadio) then {
 
-							_radio = [player] call GRAD_telephone_fnc_getRadio;
 
-			        call GRAD_telephone_fnc_tfarStartCall;
+					if (GRAD_telephone_phone_transmitting) then {
+			        	call GRAD_telephone_fnc_tfarEndCall;
+			        } else {
+			        	call GRAD_telephone_fnc_tfarStartCall;
+			    	};
 
 			        TF_tangent_phone_pressed = true;
 

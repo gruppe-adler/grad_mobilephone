@@ -29,7 +29,7 @@ scopeName "_main";
 	if (_unitRadio != "none") then {
 		diag_log format ["callDialing: checking if persons radioID %1 is calledID %2", _phoneID, _unitRadio];
 		if (_phoneID == _unitRadio) exitWith {
-			[_x] call GRAD_telephone_fnc_callWaiting;
+			[_x] spawn GRAD_telephone_fnc_callWaiting;
 			_foundRadioInUnits = true;
 			breakTo "_main";
 		};
@@ -42,7 +42,7 @@ scopeName "_main";
 // extend search, if no unit possesses radio
 if (!_foundRadioInUnits) then {
 
-	_radioItemID = "Item_" + _phoneID;
+	_radioItemID = _phoneID; // _radioItemID = "Item_" + _phoneID; // TFAR 1.0 its probably item?
 	diag_log format ["callDialing: radioItemID is %1", _radioItemID];
 
 	// todo find item elsewhere to ring in open field
@@ -53,7 +53,7 @@ if (!_foundRadioInUnits) then {
 	{
 		diag_log format ["callDialing: checking %2 for %1 on the ground", _radioItemID, (itemCargo _x)];
 		if ((itemCargo _x) find _radioItemID >= 0 ) exitWith {
-			[_x] call GRAD_telephone_fnc_callWaitingDroppedPhone;
+			[_x] spawn GRAD_telephone_fnc_callWaitingDroppedPhone;
 			diag_log format ["callDialing: found radioID %1 on the ground", _radioItemID];
 			_onGround = true;
 		};
@@ -65,7 +65,7 @@ if (!_foundRadioInUnits) then {
 		{
 			diag_log format ["callDialing: checking %2 for %1 in vehicle", _phoneID, (itemCargo _x)];
 			if ((itemCargo _x) find _phoneID >= 0) exitWith {
-				[_x] call GRAD_telephone_fnc_callWaitingDroppedPhone;
+				[_x] spawn GRAD_telephone_fnc_callWaitingDroppedPhone;
 				diag_log format ["callDialing: found radioID %1 in vehicle", _phoneID];
 				_inVehicle = true;
 			};

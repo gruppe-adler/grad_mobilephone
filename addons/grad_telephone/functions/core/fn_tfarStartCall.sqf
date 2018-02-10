@@ -1,3 +1,5 @@
+private _radio = [player] call GRAD_telephone_fnc_getRadio;
+
 ["OnBeforeTangent",
   TFAR_currentUnit,
   [TFAR_currentUnit, _radio, 0, false, true]
@@ -8,6 +10,7 @@
       , [ numberFrequency, stringEncryptionCode, numberSignalStrength, stringSubtype ]
 
 */
+
 [
   format[localize "STR_transmit",
         format ["%1<img size='1.5' image='%2'/>",
@@ -23,7 +26,6 @@ format["TANGENT	PRESSED	%1%2	%3	%4",
         "phone"],
 -1
 ] call TFAR_fnc_ProcessTangent;
-
 
 GRAD_telephone_phone_transmitting = true;
 
