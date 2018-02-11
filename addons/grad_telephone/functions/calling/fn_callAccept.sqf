@@ -13,3 +13,5 @@ _myCode = [_objectCalled] call GRAD_telephone_fnc_getNativePhoneCode;
 if (GRAD_TELEPHONE_DEBUG_MODE) then { diag_log format ["callAccept: my frequency %1 and my code %2 will be sent to %3", _myFrequency, _myCode, name _objectCaller]; };
 
 [_myFrequency, _myCode] remoteExec ["GRAD_telephone_fnc_setCallersPhoneFrequency", _objectCaller, false];
+
+call GRAD_telephone_fnc_tfarStartCall;

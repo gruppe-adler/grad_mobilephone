@@ -8,9 +8,10 @@ player setVariable ["GRAD_telephone_currentState", "ending", true];
 player setVariable ["GRAD_telephone_currentPartner", objNull, true];
 
 [player] call GRAD_telephone_fnc_setNativePhoneFrequency;
+call GRAD_telephone_fnc_tfarEndCall;
 
 // show ending hint for 3 more seconds
 [([player] call GRAD_telephone_fnc_getRadio), 3] call GRAD_telephone_fnc_showRadioInfo;
-sleep 2;
+sleep 1;
 // set state to default
 player setVariable ["GRAD_telephone_currentState", "default", true];
