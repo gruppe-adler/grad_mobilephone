@@ -1,11 +1,13 @@
 #include "..\macros_idc.hpp"
 #include "..\tones.hpp"
 
-params ["_button","_display"];
+params ["_button"];
+
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 private _lb = _display displayCtrl IDC_TONES_LIST;
 
-private _history = [_display] call GRAD_Nokia3310_fnc_historyGet;
+private _history =
 
 if (player getVariable ["GRAD_telephone_displayBusy",false]) exitWith {};
 
@@ -20,7 +22,7 @@ switch (tolower _button) do {
           (_display displayCtrl IDC_TONES_SETTING) ctrlShow true;
           (_display displayCtrl IDC_TONES_VALUE) ctrlShow true;
 
-          [_display, format ["3-%1",(_history select 1)]] call GRAD_Nokia3310_fnc_historySet;
+          [format ["3-%1",(_history select 1)]] call GRAD_Nokia3310_fnc_historySet;
           (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "Select";
      };
      case "up";
@@ -34,7 +36,7 @@ switch (tolower _button) do {
           _lb lbsetCurSel _nextIndex;
 
           [format ["3-%1-%2",(_history select 1), _nextIndex + 1]] call GRAD_Nokia3310_fnc_historySet;
-          
+
           [{
                _this call GRAD_Nokia3310_fnc_soundPlayPreview;
           }, (_lb lbData _nextIndex), 0.5] call CBA_fnc_waitAndExecute;
@@ -42,9 +44,9 @@ switch (tolower _button) do {
      case "select": {
           // stop sound preview
           player setVariable ["GRAD_telephone_listenSoundPreview",false];
-          
+
           // start confirm action animation
-          [_display, (_lb lbData (lbCurSel _lb)), [
+          [(_lb lbData (lbCurSel _lb)), [
                _display displayCtrl IDC_TONES_LIST,
                _display displayCtrl IDC_HISTORY,
                _display displayCtrl IDC_ENTERTEXT

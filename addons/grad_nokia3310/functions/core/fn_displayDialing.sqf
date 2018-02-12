@@ -1,9 +1,11 @@
 disableSerialization;
 
 #include "..\macros_idc.hpp"
-params ["_display", "_name"];
+params ["_name"];
 
-player setVariable ["GRAD_telephone_displayBusy",true];
+private _display = call GRAD_Nokia3310_fnc_displayGet;
+
+call GRAD_nokia3310_fnc_displayDisable;
 
 
 (_display displayCtrl IDC_PHONEBOOK_VIEW_NAME) ctrlSetText "Dialing...";
@@ -24,8 +26,8 @@ player setVariable ["GRAD_telephone_displayBusy",true];
 		params ["_ctrlname", "_ctrlnumber"];
 		_ctrlname ctrlShow false;
 		_ctrlnumber ctrlShow false;
-		player setVariable ["GRAD_telephone_displayBusy",false];
-	}, 
+		call GRAD_nokia3310_fnc_displayEnable;
+	},
 	[
 		(_display displayCtrl IDC_PHONEBOOK_VIEW_NAME),
 		(_display displayCtrl IDC_PHONEBOOK_VIEW_NUMBER)

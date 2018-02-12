@@ -2,7 +2,7 @@
 	deprecated
 */
 
-params ["_display"];
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 GRAD_TELEPHONE_PHONEBOOK_LOCAL = [];
 

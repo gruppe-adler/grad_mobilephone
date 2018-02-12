@@ -1,9 +1,10 @@
 disableSerialization;
 
 #include "..\macros_idc.hpp"
-params ["_display", "_tone", "_elementsToShow", ["_elementsToHide",[]]];
+params ["_tone", "_elementsToShow", ["_elementsToHide",[]]];
 
-player setVariable ["GRAD_telephone_displayBusy",true];
+private _display = call GRAD_Nokia3310_fnc_displayGet;
+
 player setVariable ["GRAD_telephone_currentPhoneRingtone", _tone, true];
 
 if (!isMultiplayer) then {

@@ -1,11 +1,13 @@
 #include "..\macros_idc.hpp"
-params ["_display","_newPage"];
+params ["_newPage"];
+
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 private _oldPage = GRAD_Nokia3310_curPage;
 
 GRAD_Nokia3310_curPage = _newPage;
 
 //save history
-private _history = [_display] call GRAD_Nokia3310_fnc_historyGet;
+private _history =
 
 //reset to default
 switch (toLower _oldPage) do {
@@ -34,24 +36,13 @@ switch (toLower _newPage) do {
           (_display displayCtrl IDC_CTRLGROUP_HOME) ctrlShow true;
           (_display displayCtrl IDC_CTRLGROUP_HOME) ctrlEnable false;
 
-          [_display, ""] call GRAD_Nokia3310_fnc_historySet;
+          [""] call GRAD_Nokia3310_fnc_historySet;
           (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "Menu";
 
           (_display displayCtrl IDC_HOME_CARRIER) ctrlSetText "GRAD_Nokia3310\data\dialog\home\carrier_5_ca.paa";
           (_display displayCtrl IDC_HOME_BATTERY) ctrlSetText "GRAD_Nokia3310\data\dialog\home\battery_full_ca.paa";
 
-          private _hourStr = str (floor daytime);
-          private _minute = (floor ((daytime - _hour) * 60));
-          private _minuteStr = "00";
-
-          if (_minute < 10) then {
-               _minuteStr = "0" + str _minute;
-          } else {
-               _minuteStr = str _minute;
-          };
-
-          private _time24 = format ["%1:%2", _hourStr, _minuteStr];
-          (_display displayCtrl IDC_HOME_CLOCK) ctrlSetText _time24;
+          [] call GRAD_nokia3310_fnc_syncClock;
      };
      case "mainmenu": {
           (_display displayCtrl IDC_CTRLGROUP_MAINMENU) ctrlShow true;
@@ -61,7 +52,7 @@ switch (toLower _newPage) do {
 
           private _index = if (_history isEqualTo []) then {0} else {(_history select 0) - 1};
 
-          [_display,_index] call GRAD_Nokia3310_fnc_scroll_mainmenu;
+          [_index] call GRAD_Nokia3310_fnc_scroll_mainmenu;
      };
      case "tones": {
           (_display displayCtrl IDC_CTRLGROUP_TONES) ctrlShow true;
@@ -73,7 +64,7 @@ switch (toLower _newPage) do {
 
           private _index = if (count _history isEqualTo 1) then {0} else {(_history select 1) - 1};
 
-          [_display, _Index] call GRAD_Nokia3310_fnc_scroll_tones;
+          [ _Index] call GRAD_Nokia3310_fnc_scroll_tones;
      };
      case "settings": {
           (_display displayCtrl IDC_CTRLGROUP_TONES) ctrlShow true;
@@ -85,10 +76,10 @@ switch (toLower _newPage) do {
 
           private _index = if (count _history isEqualTo 1) then {0} else {(_history select 1) - 1};
 
-          [_display, _Index] call GRAD_Nokia3310_fnc_scroll_settings;
+          [ _Index] call GRAD_Nokia3310_fnc_scroll_settings;
      };
      case "phonebook": {
-          
+
 
           (_display displayCtrl IDC_CTRLGROUP_PHONEBOOK) ctrlShow true;
           (_display displayCtrl IDC_CTRLGROUP_PHONEBOOK) ctrlEnable false;
@@ -129,7 +120,7 @@ switch (toLower _newPage) do {
 
           private _index = if (count _history isEqualTo 1) then {0} else {(_history select 1)};
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbsetCurSel _index;
-          [_display, format ["1-%1",_index + 1]] call GRAD_Nokia3310_fnc_historySet;
+          [ format ["1-%1",_index + 1]] call GRAD_Nokia3310_fnc_historySet;
      };
      case "alarm": {
           (_display displayCtrl IDC_CTRLGROUP_ALARM) ctrlShow true;
@@ -139,7 +130,7 @@ switch (toLower _newPage) do {
           (_display displayCtrl IDC_ALARM_SET_EDIT) ctrlSetText "hh:mm";
           ctrlSetFocus (_display displayCtrl IDC_ALARM_SET_EDIT);
 
-          handle1 = [_display,IDC_ALARM_SET_EDIT] spawn {
+          handle1 = [_display, IDC_ALARM_SET_EDIT] spawn {
                disableSerialization;
                params ["_disp","_idc"];
                private _shownCursor = false;

@@ -1,4 +1,6 @@
-params ["_display", "_text"];
+params ["_text"];
+
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 (_display displayCtrl IDC_HISTORY) ctrlSetText _text;
 

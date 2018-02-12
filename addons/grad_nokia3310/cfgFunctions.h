@@ -9,6 +9,10 @@ class CfgFunctions
 			class btnClick;
 			class confirmAction;
 			class displayDialing;
+			class displayDisable;
+			class displayEnable;
+			class displayGet;
+			class displaySet;
 			class initPage;
 			class onLoad;
 			class onUnLoad;
@@ -16,7 +20,7 @@ class CfgFunctions
 			class soundPlayPreview;
 		};
 
-		class history 
+		class history
 		{
 			file = "grad_nokia3310\functions\history";
 
@@ -24,7 +28,7 @@ class CfgFunctions
 			class historySet;
 		};
 
-		class main 
+		class main
 		{
 			file = "grad_nokia3310\functions\main";
 
@@ -44,7 +48,7 @@ class CfgFunctions
 			class scroll_tones;
 		};
 
-		class phonebook 
+		class phonebook
 		{
 			file = "grad_nokia3310\functions\phonebook";
 

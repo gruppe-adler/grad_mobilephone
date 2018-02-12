@@ -1,9 +1,11 @@
 params ["_display"];
 
+missionNamespace setVariable ["GRAD_Nokia3310_curDisplay", _display];
+
 GRAD_Nokia3310_curPage = missionNamespace getVariable ["GRAD_Nokia3310_curPageSave", "home"];
 GRAD_Nokia3310_curSel = missionNamespace getVariable ["GRAD_Nokia3310_curSelSave", ""];
 
-[_display, GRAD_Nokia3310_curPage] call GRAD_Nokia3310_fnc_initPage;
+[GRAD_Nokia3310_curPage] call GRAD_Nokia3310_fnc_initPage;
 
 if (!isMultiplayer) then {
 	diag_log format ["........................................"];

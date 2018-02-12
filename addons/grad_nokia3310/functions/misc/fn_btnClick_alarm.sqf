@@ -1,9 +1,11 @@
 #include "..\macros_idc.hpp"
-params ["_button","_display"];
+params ["_button"];
+
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 switch (tolower _button) do {
      case "cancel": {
-          [_display,"mainmenu"] call GRAD_Nokia3310_fnc_initPage;
+          ["mainmenu"] call GRAD_Nokia3310_fnc_initPage;
      };
      case "select": {
 

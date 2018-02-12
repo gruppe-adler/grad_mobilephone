@@ -1,22 +1,24 @@
 #include "..\macros_idc.hpp"
-params ["_button","_display"];
+params ["_button"];
+
+private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 private _lb = _display displayCtrl IDC_PHONEBOOK_SETTINGS;
 
-private _history = [_display] call GRAD_Nokia3310_fnc_historyGet;
+private _history =
 
 switch (tolower _button) do {
      case "cancel": {
           if ([player] call GRAD_telephone_fnc_isCalling) then {
                [] spawn GRAD_telephone_fnc_callEnding;
           };
-               
+
           //hide settings and show contacts
           (_display displayCtrl IDC_PHONEBOOK_CONTACTS) ctrlShow true;
           _lb ctrlShow false;
 
           //update history and entertext
-          [_display, format ["1-%1", (lbCurSel (_display displayCtrl IDC_PHONEBOOK_CONTACTS)) + 1]] call GRAD_Nokia3310_fnc_historySet;
+          [format ["1-%1", (lbCurSel (_display displayCtrl IDC_PHONEBOOK_CONTACTS)) + 1]] call GRAD_Nokia3310_fnc_historySet;
           (_display displayCtrl IDC_ENTERTEXT) ctrlSetText "Select";
 
      };
@@ -28,7 +30,7 @@ switch (tolower _button) do {
 
           _lb lbsetCurSel _nextIndex;
 
-          [_display, format ["1-%1-%2",(_history select 1), _nextIndex + 1]] call GRAD_Nokia3310_fnc_historySet;
+          [format ["1-%1-%2",(_history select 1), _nextIndex + 1]] call GRAD_Nokia3310_fnc_historySet;
      };
      case "select": {
           private _contactIndex = lbCurSel (_display displayCtrl IDC_PHONEBOOK_CONTACTS);
@@ -58,8 +60,8 @@ switch (tolower _button) do {
                          } else {
                               [_targetRadioID, _targetName] spawn GRAD_telephone_fnc_callDialing;
                          };
-                         [_display, _targetName] call GRAD_nokia3310_fnc_displayDialing;
-                         [_display, format ["1-%1-%2",(_history select 1), lbCurSel _lb]] call GRAD_Nokia3310_fnc_historySet;
+                         [_targetName] call GRAD_Nokia3310_fnc_displayDialing;
+                         [format ["1-%1-%2",(_history select 1), lbCurSel _lb]] call GRAD_Nokia3310_fnc_historySet;
                     };
                };
                case 1: {
@@ -75,12 +77,12 @@ switch (tolower _button) do {
                };
                case 2: {
                     //DELETE
-                    [_display, (_lb lbData (lbCurSel _lb)), 
+                    [(_lb lbData (lbCurSel _lb)),
                          [
                               (_display displayCtrl IDC_PHONEBOOK_CONTACTS),
                               (_display displayCtrl IDC_HISTORY),
                               (_display displayCtrl IDC_ENTERTEXT)
-                         ], 
+                         ],
                          [
                               (_display displayCtrl IDC_PHONEBOOK_SETTINGS)
                          ]
@@ -90,9 +92,9 @@ switch (tolower _button) do {
                     private _currentEntryIndex = (lbCurSel (_display displayCtrl IDC_PHONEBOOK_CONTACTS));
                     [player, _currentEntryIndex, "remove", _targetRadioID, player, _phoneNumber, _isIED] call GRAD_telephone_fnc_modifyPhonebook;
                     (_display displayCtrl IDC_PHONEBOOK_CONTACTS) lbDelete _currentEntryIndex;
-                    
-                    if (GRAD_TELEPHONE_DEBUG_MODE) then { 
-                         diag_log format ["remove called with index: %1", _currentEntryIndex]; 
+
+                    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+                         diag_log format ["remove called with index: %1", _currentEntryIndex];
                     };
 
                };

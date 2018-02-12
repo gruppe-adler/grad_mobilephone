@@ -1,26 +1,24 @@
 params ["_button","_params"];
-_params params ["_ctrl"];
-
-private _display = ctrlParent _ctrl;
+_params params ["_ctrl"]; // not needed here
 
 switch (toLower GRAD_Nokia3310_curPage) do {
      case "home": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_home;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_home;
      };
      case "mainmenu": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_mainMenu;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_mainMenu;
      };
      case "tones": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_tones;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_tones;
      };
      case "settings": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_settings;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_settings;
      };
      case "phonebook": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_phonebook;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_phonebook;
      };
      case "alarm": {
-          [_button, _display] call GRAD_Nokia3310_fnc_btnClick_alarm;
+          [_button] call GRAD_Nokia3310_fnc_btnClick_alarm;
      };
 };
 
