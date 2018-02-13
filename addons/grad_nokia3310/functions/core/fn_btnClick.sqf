@@ -1,5 +1,4 @@
-params ["_button","_params"];
-_params params ["_ctrl"]; // not needed here
+params ["_button"];
 
 switch (toLower GRAD_Nokia3310_curPage) do {
      case "home": {

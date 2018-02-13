@@ -6,10 +6,11 @@ private _oldPage = GRAD_Nokia3310_curPage;
 
 GRAD_Nokia3310_curPage = _newPage;
 
-//save history
-private _history =
+call GRAD_nokia3310_fnc_syncClock;
 
+private _history = call GRAD_Nokia3310_fnc_historyGet;
 //reset to default
+/*
 switch (toLower _oldPage) do {
      case "home": {
           (_display displayCtrl IDC_CTRLGROUP_HOME) ctrlShow false;
@@ -30,6 +31,7 @@ switch (toLower _oldPage) do {
           (_display displayCtrl IDC_CTRLGROUP_SETTINGS) ctrlShow false;
      };
 };
+*/
 //init new page
 switch (toLower _newPage) do {
      case "home": {
@@ -41,8 +43,6 @@ switch (toLower _newPage) do {
 
           (_display displayCtrl IDC_HOME_CARRIER) ctrlSetText "GRAD_Nokia3310\data\dialog\home\carrier_5_ca.paa";
           (_display displayCtrl IDC_HOME_BATTERY) ctrlSetText "GRAD_Nokia3310\data\dialog\home\battery_full_ca.paa";
-
-          [] call GRAD_nokia3310_fnc_syncClock;
      };
      case "mainmenu": {
           (_display displayCtrl IDC_CTRLGROUP_MAINMENU) ctrlShow true;

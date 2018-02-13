@@ -7,7 +7,7 @@ private _display = call GRAD_Nokia3310_fnc_displayGet;
 
 private _lb = _display displayCtrl IDC_TONES_LIST;
 
-private _history =
+private _history = call GRAD_Nokia3310_fnc_historyGet;
 
 if (player getVariable ["GRAD_telephone_displayBusy",false]) exitWith {};
 
@@ -29,13 +29,7 @@ switch (tolower _button) do {
      case "down": {
           player setVariable ["GRAD_telephone_listenSoundPreview",false];
 
-          private _nextIndex = if (tolower _button isEqualTo "down") then {(lbCurSel _lb) + 1} else {(lbCurSel _lb) - 1};
-          if (_nextIndex isEqualTo (lbSize _lb)) then {_nextIndex = 0;};
-          if (_nextIndex isEqualTo -1) then {_nextIndex = (lbSize _lb) -1;};
-
-          _lb lbsetCurSel _nextIndex;
-
-          [format ["3-%1-%2",(_history select 1), _nextIndex + 1]] call GRAD_Nokia3310_fnc_historySet;
+          [_button, _nextIndex, _lb] call GRAD_Nokia3310_fnc_scrollUpDown;
 
           [{
                _this call GRAD_Nokia3310_fnc_soundPlayPreview;

@@ -5,7 +5,7 @@ params ["_button"];
 
 private _display = call GRAD_Nokia3310_fnc_displayGet;
 
-private _curIndex = () select 1) - 1;
+private _curIndex = ((call GRAD_Nokia3310_fnc_history) select 1) - 1;
 
 if (ctrlShown (_display displayCtrl IDC_TONES_LIST)) exitWith {_this call GRAD_Nokia3310_fnc_btnClick_tones_list;};
 
