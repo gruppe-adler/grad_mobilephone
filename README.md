@@ -4,6 +4,9 @@
 ## Goal of this mod
 * Extend Task Force Arrowhead Radio with cellphone behaviour
 
+## State
+As of now, after a proof of concept this is frozen in refactoring and not actively worked on.
+
 ## Planned Features
 * Unique phone number attached to the device
 * Establishing connection only one at a time
